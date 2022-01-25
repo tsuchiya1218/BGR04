@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,6 +12,14 @@
 
 <body>
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
+
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+    ?>
 
     <h3 style="text-align:right">ユーザー名</h3>
     <h2 style="text-align:center">あなたの好みを探します</h2>

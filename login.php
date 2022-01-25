@@ -33,5 +33,7 @@ if($login=="true"){
 パスワード:<input type="password" name="pass" style="width:200px">
 <p><input type="submit" value="ログイン"></p>
 </form>
+<a href=""> パスワードを忘れた方はこちら</a>
+<a href=""> 新規会員登録はこちら</a>
 </body>
 </html>

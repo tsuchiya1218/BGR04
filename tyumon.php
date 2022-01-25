@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,6 +15,13 @@
     <h3>
         <p style="text-align: right">
             ユーザー名<br>
+            <?php
+            echo "<p style=\"text-align:right\">";
+            echo "{$_SESSION["name"]}でログイン中</br>";
+
+            echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+            echo "</p>";
+            ?>
             <a href="">ログイン</a>
         </p>
     </h3>
@@ -31,8 +42,7 @@
             <input type="radio" id="3" name="1"><label for="3">四菱銀行カード</label>
             <input type="radio" id="4" name="1"><label for="4">Misterカード</label>
             <input type="radio" id="5" name="1"><label for="5">楽夫カード</label><br>
-            <input type="number" name="CardNumber"
-                onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br>
+            <input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br>
             <table border="2">
                 <tr>
                     <td width="150" height="80"><img src="img/ラーメン.jpg" alt="八郎" width="193" height="130"></td>

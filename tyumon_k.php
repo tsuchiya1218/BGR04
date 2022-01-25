@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,6 +14,14 @@
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <h2>注文確認画面</h2>
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
+
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+    ?>
+
     <p>住所：東京都新宿区○○１－１－１</p>
     <p>カード会社：あめっくす</p>
     <img src="./img/ramen.jpg" alt="">

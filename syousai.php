@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,6 +14,13 @@
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 	<h2>〇〇エリア〇〇県</h2>
 	<h2>カシスとオレンジのラーメン</h2>
+	<?php
+	echo "<p style=\"text-align:right\">";
+	echo "{$_SESSION["name"]}でログイン中</br>";
+
+	echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+	echo "</p>";
+	?>
 	<img src="ramen.jpg" alt="カシスラーメン">
 
 	<p>リキュールを使ったカクテルでおなじみのカシスは、ポリフェノールやビタミンが豊富なベリー系のラーメンです。</br>

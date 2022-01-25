@@ -1,0 +1,37 @@
+<?php
+session_start();
+$login="";
+if(!empty($_SESSION["login"])){
+    $login=$_SESSION["login"];
+};
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>日本電子学生管理システム</title>
+</head>
+<body>
+<p>ログインページ</p>
+
+<?php
+
+if($login=="true"){
+
+    echo"<p style=\"text-align:right\">";
+    echo"{$_SESSION["name"]}<br>";
+
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+};
+?>
+
+
+<form method="post" action="Top.php">
+ユーザー名:<input type="text" name="name" style="width:200px"></br>
+パスワード:<input type="password" name="pass" style="width:200px">
+<p><input type="submit" value="ログイン"></p>
+</form>
+</body>
+</html>

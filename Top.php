@@ -14,7 +14,7 @@ $_SESSION["name"] = "$name";
     <title>Top</title>
 </head>
 <body>
-    <img name="logo" src="./img/" alt="logo">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <h3 style="text-align:right">ユーザー名</h3>
     <p>エリアからご当地ラーメンを検索する</p>

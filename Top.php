@@ -21,9 +21,9 @@ $_SESSION["name"] = "$name";
     <h3 style="text-align:right">ユーザー名</h3>
     <p>エリアからご当地ラーメンを検索する</p>
 
-<?php
-echo"<p style=\"text-align:right\">";
-echo"{$_SESSION["name"]}でログイン中</br>";
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
 
     echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
     echo "</p>";

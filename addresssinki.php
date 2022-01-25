@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -10,12 +14,19 @@
 <body>
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
+
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+    ?>
+
     <h2>住所新規登録画面</h2>
     <p>●●様</p>
     <form method="POST" action="tyumon.html">
         <p>新規郵便番号:
-            <input type="text" name="postal" size="7" placeholder="1690073" minlength="7"
-                pattern="\d{7}"><small>※ハイフンなし</small>
+            <input type="text" name="postal" size="7" placeholder="1690073" minlength="7" pattern="\d{7}"><small>※ハイフンなし</small>
         </p>
         <p>新規住所１:
             <input type="address" name="address" size="10" placeholder="例:東京都新宿区" maxlength="10">

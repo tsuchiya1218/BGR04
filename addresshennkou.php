@@ -1,5 +1,9 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +13,14 @@
 
 <body>
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
+
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+    ?>
 
     <h2>住所変更画面</h2>
     <form method="POST" action="book_payment.php">

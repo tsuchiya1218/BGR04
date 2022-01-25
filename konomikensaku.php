@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -7,7 +11,16 @@
 </head>
 
 <body>
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
+
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+    ?>
+
     <table border="1">
         <tr onclick="location.href='syousai.html'">
             <td><img src="ramen.jpg" alt="俺のミルクラーメン"></td>

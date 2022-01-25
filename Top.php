@@ -19,7 +19,7 @@ $_SESSION["name"] = "$name";
     <h3 style="text-align:right">ユーザー名</h3>
     <p>エリアからご当地ラーメンを検索する</p>
 
-    <?php
+<?php
 echo"<p style=\"text-align:right\">";
 echo"{$_SESSION["name"]}でログイン中</br>";
 

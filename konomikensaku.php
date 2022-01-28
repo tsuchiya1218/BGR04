@@ -22,7 +22,7 @@ session_start();
     ?>
 
     <table border="1">
-        <tr onclick="location.href='syousai.html'">
+        <tr onclick="location.href='syousai.php'">
             <td><img src="ramen.jpg" alt="俺のミルクラーメン"></td>
             <td>
                 俺のミルクラーメン
@@ -35,7 +35,7 @@ session_start();
                 &yen;300-
             </td>
         </tr>
-        <tr onclick="location.href='syousai.html'">
+        <tr onclick="location.href='syousai.php'">
             <td><img src="ramen.jpg" alt="TOKYO都民だと思ってましたラーメン"></td>
             <td>
                 TOKYO都民だと思ってましたラーメン
@@ -48,7 +48,7 @@ session_start();
             </td>
         </tr>
     </table>
-    <input type="button" onclick="location.href='kensaku.html'" value="戻る" />
+    <input type="button" onclick="location.href='kensaku.php'" value="戻る" />
 </body>
 
 </html>

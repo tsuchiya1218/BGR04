@@ -32,8 +32,8 @@ session_start();
 		<button class="button" value="0">＋</button>
 	</div>
 
-	<input type="button" onclick="location.href='Top.html'" value="戻る" />
-	<input type="button" onclick="location.href='cart.html'" value="追加" />
+	<input type="button" onclick="location.href='Top.php'" value="戻る" />
+	<input type="button" onclick="location.href='cart.php'" value="追加" />
 </body>
 
 </html>

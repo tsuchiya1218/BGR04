@@ -29,8 +29,8 @@ $_SESSION["name"] = "$name";
     echo "</p>";
     ?>
 
-    <img name="Top_img" src="./img/日本列島.png" alt="日本列島" onClick="document.location='syousai.html'">
-    <input type="button" value="好みの味を探す" onClick="document.location='kensaku.html'">
+    <img name="Top_img" src="./img/日本列島.png" alt="日本列島" onClick="document.location='syousai.php'">
+    <input type="button" value="好みの味を探す" onClick="document.location='kensaku.php'">
 </body>
 
 </html>

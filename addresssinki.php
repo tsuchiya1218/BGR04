@@ -24,7 +24,7 @@ session_start();
 
     <h2>住所新規登録画面</h2>
     <p>●●様</p>
-    <form method="POST" action="tyumon.html">
+    <form method="POST" action="tyumon.php">
         <p>新規郵便番号:
             <input type="text" name="postal" size="7" placeholder="1690073" minlength="7" pattern="\d{7}"><small>※ハイフンなし</small>
         </p>

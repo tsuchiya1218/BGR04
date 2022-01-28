@@ -30,12 +30,12 @@ session_start();
 <body>
     <p>注文画面</p>
     <div style="text-align: center">
-        登録住所：○○　<a href="addresshenkou.html">変更</a><br>
+        登録住所：○○　<a href="addresshenkou.php">変更</a><br>
 
         <a href="addresssinki">住所新規</a><br>
     </div>
     <br>
-    <form action="tyumon_k.html" method="post">
+    <form action="tyumon_k.php" method="post">
         <div style="text-align: center">
             <input type="radio" id="1" name="1"><label for="1">JCBBカード</label>
             <input type="radio" id="2" name="1"><label for="2">二井主友カード</label>
@@ -63,7 +63,7 @@ session_start();
                     <td>○○円</td>
                 </tr>
             </table>
-            <input type="button" onclick="location.href='cart.html'" value="戻る" />
+            <input type="button" onclick="location.href='cart.php'" value="戻る" />
             <input type="submit" value="注文を確定する">
         </div>
     </form>

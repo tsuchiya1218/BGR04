@@ -66,19 +66,19 @@ session_start();
 </body>
 <footer>
     <p style="text-align: left">　　
-        <a href="">ホーム</a>
+        <a href="Top.php">ホーム</a>
     </p>
     <p style="text-align: center">
-        <a href="">日本地図で検索</a>
+        <a href="Top.php">日本地図で検索</a>
     </p>
     <p style="text-align: center">
-        <a href="">好みで検索</a>
+        <a href="konomikensaku.php">好みで検索</a>
     </p>
     <p style="text-align: center">
-        <a href="">カート内一覧</a>
+        <a href="cart.php">カート内一覧</a>
     </p>
     <p style="text-align: center">
-        <a href="">注文履歴</a>
+        <a href="tyumon_his.php">注文履歴</a>
     </p>
     <p style="text-align: right">
         <a href="">お問い合わせ</a>

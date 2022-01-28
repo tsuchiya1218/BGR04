@@ -30,8 +30,8 @@ session_start();
 
     <p>以上の内容で注文を確定してもよろしいですか？</p>
 
-    <input type="button" onclick="location.href='tyumon.html'" value="戻る" />
-    <input type="button" onclick="location.href='tyumon_kt.html'" value="注文を確定する" />
+    <input type="button" onclick="location.href='tyumon.php'" value="戻る" />
+    <input type="button" onclick="location.href='tyumon_kt.php'" value="注文を確定する" />
 </body>
 
 </html>

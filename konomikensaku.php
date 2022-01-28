@@ -48,7 +48,7 @@ session_start();
             </td>
         </tr>
     </table>
-    <input type="button" onclick="location.href='kensaku.php'" value="戻る" />
+    <input type="button" onclick="history.back()" value="戻る">
 </body>
 
 </html>

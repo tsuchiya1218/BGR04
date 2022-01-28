@@ -13,6 +13,8 @@ if(!empty($_SESSION["login"])){
 <title>パスワード再設定画面</title>
 </head>
 <body>
+<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+
 <p>パスワード再設定ページ</p>
 
 <?php

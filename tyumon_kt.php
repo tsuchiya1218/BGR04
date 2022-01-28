@@ -25,6 +25,7 @@ session_start();
 
     <p>ご確認用のメールを送信しました</p>
 
+    <input type="button" onclick="location.href='top.php'" value="トップページに戻る" />
 </body>
 
 </html>

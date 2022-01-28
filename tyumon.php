@@ -22,7 +22,6 @@ session_start();
             echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
             echo "</p>";
             ?>
-            <a href="">ログイン</a>
         </p>
     </h3>
 </header>

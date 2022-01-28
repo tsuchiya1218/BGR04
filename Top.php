@@ -1,10 +1,7 @@
 <?php
 session_start();
-if(empty($_SESSION["name"])){
-    $name = $_POST["name"];
 
-    $_SESSION["name"] = "$name";
-}
+    $_SESSION["name"] = "熊澤直人";
 ?>
 
 

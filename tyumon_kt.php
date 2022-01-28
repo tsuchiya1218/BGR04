@@ -26,6 +26,7 @@ session_start();
     <p>ご確認用のメールを送信しました</p>
 
     <input type="button" onclick="location.href='top.php'" value="トップページに戻る" />
+    <input type="button" onclick="location.href='tyumon_his.php'" value="注文履歴" />
 </body>
 
 </html>

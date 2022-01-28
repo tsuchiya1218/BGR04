@@ -10,7 +10,7 @@ if(!empty($_SESSION["login"])){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>日本電子学生管理システム</title>
+<title>ログインページ</title>
 </head>
 <body>
 <p>ログインページ</p>

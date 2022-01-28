@@ -1,11 +1,3 @@
-<?php
-session_start();
-$login="";
-if(!empty($_SESSION["login"])){
-    $login=$_SESSION["login"];
-};
-?>
-
 <!DOCTYPE html>
 <html>
 <head>

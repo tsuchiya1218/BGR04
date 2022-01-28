@@ -17,7 +17,7 @@ session_start();
     echo "<p style=\"text-align:right\">";
     echo "{$_SESSION["name"]}でログイン中</br>";
 
-    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "<button onclick=\"location.href=''\">ログアウト</button>";
     echo "</p>";
     ?>
 
@@ -48,7 +48,7 @@ session_start();
             </td>
         </tr>
     </table>
-    <input type="button" onclick="location.href='kensaku.php'" value="戻る" />
+    <input type="button" onclick="history.back()" value="戻る">
 </body>
 
 </html>

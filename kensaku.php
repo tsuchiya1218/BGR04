@@ -17,13 +17,13 @@ session_start();
     echo "<p style=\"text-align:right\">";
     echo "{$_SESSION["name"]}でログイン中</br>";
 
-    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "<button onclick=\"location.href=''\">ログアウト</button>";
     echo "</p>";
     ?>
 
     <h3 style="text-align:right">ユーザー名</h3>
     <h2 style="text-align:center">あなたの好みを探します</h2>
-    <form method="POST" action="konomikensaku.php">
+    <form method="POST" action="konomihanndann.php">
         <div>
             <label><input type="radio" name="kosa" value="あっさり" required>あっさり</label>
             <label><input type="radio" name="kosa" value="こってり">こってり</label>
@@ -40,7 +40,7 @@ session_start();
             <label><input type="radio" name="azi" value="豚骨">豚骨</label>
             <strong>必須</strong>
         </div>
-        <input type="button" onclick="location.href='Top.php'" value="戻る" />
+        <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="検索">
     </form>
 </body>

@@ -51,7 +51,7 @@ try {
 </head>
 
 <body>
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
 	<h2><?php $value["book_name"] ?></h2>
 	<h2>カシスとオレンジのラーメン</h2>
 	<?php

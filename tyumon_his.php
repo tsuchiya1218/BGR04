@@ -10,7 +10,7 @@ session_start();
     <title>ラーメン屋 注文履歴一覧</title>
 </head>
 <header>
-    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+<a href="Top.php"><img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130"></a>
 
     <h3>
         <p style="text-align: right">

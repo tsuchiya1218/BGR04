@@ -12,7 +12,7 @@ session_start();
 
 
 <body>
-    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+<a href="Top.php"><img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130"></a>
 
     <?php
     echo "<p style=\"text-align:right\">";

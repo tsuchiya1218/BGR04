@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$g_code=1;
+$g_code="1";
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -38,7 +38,7 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
-echo $array;
+
 ?>
 
 <!DOCTYPE html>

@@ -3,10 +3,10 @@ session_start();
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
-	$db_name = "20jy0203";	// データベース名(自分の学籍番号を入力)
+	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
 
-	$user_name = "20jy0203";	// ユーザ名(自分の学籍番号を入力)
-	$user_pass = "20jy0203";	// パスワード(自分の学籍番号を入力)
+	$user_name = "20jy0204";	// ユーザ名(自分の学籍番号を入力)
+	$user_pass = "20jy0204";	// パスワード(自分の学籍番号を入力)
 	// データソース名設定
 	$dsn = "sqlsrv:server=$server_name;database=$db_name";
 
@@ -23,7 +23,8 @@ try {
 $sid = session_id();
 
 $sql = "SELECT g_code,g_name,g_image,price from goods
-        inner join cart on book_cart.book_id = book.book_id where session_id = ?";
+        inner join cart on g_code.cart = g_code.goods 
+		where session_id = ?";
 
 $stmt = $pdo->prepare($sql);
 

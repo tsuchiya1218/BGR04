@@ -23,13 +23,13 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM goods WHERE g_code=?";
+$sql = "SELECT * FROM goods";
 
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
 	// SQL 文を実行
-	$stmt->execute(array($g_code));
+	$stmt->execute();
 	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
 	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$stmt = null;
@@ -38,7 +38,12 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
-
+foreach ($array as $value) {
+	echo "<tr><td>"
+	. $value["g_code"] . "</td>"
+	. "<td>" . $value["g_name"] . "</td>"
+	. "<td>".$value["g_image"]."</tr>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +56,7 @@ try {
 
 <body>
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
-	<h2><?php echo $array["g_name"]."うんこ"; ?></h2>
+	<h2><?php ?></h2>
 	<h2>カシスとオレンジのラーメン</h2>
 	<?php
 	echo "<p style=\"text-align:right\">";

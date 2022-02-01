@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$g_code=1;
+$g_code="1";
 
 //データベースに接続する
 try {

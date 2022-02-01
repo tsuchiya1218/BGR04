@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <body>
-    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+    <a href="Top.php"><img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130"></a>
 
     <h3 style="text-align:right">ユーザー名</h3>
     <p>エリアからご当地ラーメンを検索する</p>

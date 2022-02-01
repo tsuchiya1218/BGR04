@@ -19,7 +19,7 @@ session_start();
             echo "<p style=\"text-align:right\">";
             echo "{$_SESSION["name"]}でログイン中</br>";
 
-            echo "<button onclick=\"location.href=''\">ログアウト</button>";
+            echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
             echo "</p>";
             ?>
         </p>

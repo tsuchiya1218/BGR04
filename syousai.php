@@ -38,7 +38,7 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
-
+echo $array;
 ?>
 
 <!DOCTYPE html>

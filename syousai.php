@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-$g_code="1";
-//asdadad
+$g_code=1;
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -39,7 +38,12 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
-
+foreach ($array as $value) {
+	echo "<table border='1'><tr><td>"
+	. $value["g_code"] . "</td>"
+	. "<td>" . $value["g_name"] . "</td>"
+	. "<td>".$value["g_image"]."</tr></teble>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,8 +55,8 @@ try {
 </head>
 
 <body>
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
-	<h2><?php $value["book_name"] ?></h2>
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
+	<h2><?php ?></h2>
 	<h2>カシスとオレンジのラーメン</h2>
 	<?php
 	echo "<p style=\"text-align:right\">";

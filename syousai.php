@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$g_code="1";
+$g_code=1;
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -23,13 +23,13 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM goods WHERE g_code=1";
+$sql = "SELECT * FROM goods WHERE g_code=?";
 
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
 	// SQL 文を実行
-	$stmt->execute();
+	$stmt->execute(array($g_code));
 	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
 	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$stmt = null;

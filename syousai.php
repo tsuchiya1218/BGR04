@@ -51,7 +51,7 @@ try {
 
 <body>
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
-	<h2><?php echo $array["g_name"] ?></h2>
+	<h2><?php echo $array["g_name"]."うんこ"; ?></h2>
 	<h2>カシスとオレンジのラーメン</h2>
 	<?php
 	echo "<p style=\"text-align:right\">";

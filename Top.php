@@ -45,13 +45,3 @@ session_start();
 </body>
 
 </html>
-
-
-
-
-
-
-<img src="日本地図.png" usemap="#ImageMap" alt="" />
-<map name="ImageMap">
-  
-</map>

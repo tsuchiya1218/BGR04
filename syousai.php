@@ -39,10 +39,10 @@ try {
 	exit();
 }
 foreach ($array as $value) {
-	echo "<tr><td>"
+	echo "<table border='1'><tr><td>"
 	. $value["g_code"] . "</td>"
 	. "<td>" . $value["g_name"] . "</td>"
-	. "<td>".$value["g_image"]."</tr>";
+	. "<td>".$value["g_image"]."</tr></teble>";
 }
 ?>
 

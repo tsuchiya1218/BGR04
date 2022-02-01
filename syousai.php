@@ -23,7 +23,7 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM goods";
+$sql = "SELECT * FROM goods WHERE g_code=1";
 
 try {
 	// SQL 文を準備

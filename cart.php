@@ -11,26 +11,27 @@ try {
 	$dsn = "sqlsrv:server=$server_name;database=$db_name";
 
 	// PDOオブジェクトのインスタンス作成
-	$pdo = new PDO ($dsn, $user_name, $user_pass);
+	$pdo = new PDO($dsn, $user_name, $user_pass);
 
 	// PDOオブジェクトの属性の指定
-	$pdo ->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-} catch ( PDOException $e ) {
-	print "接続エラー!: " . $e->getMessage ();
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+	print "接続エラー!: " . $e->getMessage();
 	exit();
 }
 
-$sid = session_id();
+//$sid = session_id();
 
-$sql = "SELECT g_code,g_name,g_image,price from goods
-        inner join cart on g_code.cart = g_code.goods 
-		where session_id = ?";
+$sql = "SELECT * from cart
+        inner join customers on customers.c_code = cart.c_code
+		inner join goods on goods.g_code = cart.g_code";
 
+$g_code=count{$value["cart.g_code"]};
 $stmt = $pdo->prepare($sql);
 
-$stmt ->execute(array($sid));
+$stmt->execute(array($g_code)); //array($sid)
 
-$array = $stmt -> fetchAll();
+$array = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +57,22 @@ $array = $stmt -> fetchAll();
 	<h2 style="text-align:center">カート内一覧</h2>
 
 	<table border="2">
+		<tr>
+			<th></th>
+			<th>商品名</th>
+			<th>金額</th>
+			<th>数量</th>
+			<th></th>
+		</tr>
+		<?php
+        foreach($array as $row){
+                echo "<tr>";
+                echo "<td>{$row['g_image']}</td>";
+                echo "<td>{$row['g_name']}</td>";
+                echo "<td>{$row['price']}</td>";
+                echo "</tr>";
+        }
+?>
 		<tr>
 			<td width="150" height="80"><img src="img/ラーメン.jpg" alt="八郎" width="193" height="130"></td>
 			<td width="150" height="80">○○ラーメン<br>魂心屋</td>

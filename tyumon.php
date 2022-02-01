@@ -10,7 +10,7 @@ session_start();
     <title>ラーメン屋 注文　支払い選択</title>
 </head>
 <header>
-    <a href="Top.php"><img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130"></a>
+    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <h3>
         <p style="text-align: right">
@@ -19,7 +19,7 @@ session_start();
             echo "<p style=\"text-align:right\">";
             echo "{$_SESSION["name"]}でログイン中</br>";
 
-            echo "<button onclick=\"location.href=''\">ログアウト</button>";
+            echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
             echo "</p>";
             ?>
         </p>

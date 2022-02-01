@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$g_code=1;
+$g_code = 2;
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -38,11 +38,20 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
+
 foreach ($array as $value) {
-	echo "<table border='1'><tr><td>"
-	. $value["g_code"] . "</td>"
-	. "<td>" . $value["g_name"] . "</td>"
-	. "<td>".$value["g_image"]."</tr></teble>";
+	$g_name = $value["g_name"];
+	$g_image = $value["g_image"];
+	$g_detail = $value["g_detail"];
+	$stock = $value["stock"];
+	$price = $value["price"];
+	$allergen = $value["allergen"];
+	$shopname = $value["shopname"];
+	$contents = $value["contents"];
+	$prefectures = $value["prefectures"];
+	$type = $value["type"];
+	$taste_intensity = $value["taste_intensity"];
+	$noodle_thickness = $value["noodle_thickness"];
 }
 ?>
 
@@ -56,8 +65,6 @@ foreach ($array as $value) {
 
 <body>
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
-	<h2><?php ?></h2>
-	<h2>カシスとオレンジのラーメン</h2>
 	<?php
 	echo "<p style=\"text-align:right\">";
 	echo "{$_SESSION["name"]}でログイン中</br>";
@@ -65,11 +72,25 @@ foreach ($array as $value) {
 	echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
 	echo "</p>";
 	?>
-	<img src="ramen.jpg" alt="カシスラーメン">
+<? //table divにする ?>
+	<table name="ramen">
+		<tr>
+			<th><?= $shopname . "</br>" . $g_name ?></th>
+		</tr>
+		<tr>
+			<td><img name=g_image src="./img/<?= $g_image ?>" alt="g_image" width="700" height="500"></td>
+		</tr>
+		<tr>
+			<td><?= $g_detail ?></td>
+		</tr>
+		<tr>
+			<th>単価:<?= $price ?></td>
+		<tr>
+			<th>アレルゲン:</th>
+			<td><?= $allergen ?></td>
+		</tr>
+	</table>
 
-	<p>リキュールを使ったカクテルでおなじみのカシスは、ポリフェノールやビタミンが豊富なベリー系のラーメンです。</br>
-		オレンジとともにジューサーにかけて、爽やかなラーメンに仕上げました。</p>
-	<p>&yen;480-</p>
 	<div class="counter">
 		<button class="button" value="0">－</button>
 		<input type="number" value="0">個

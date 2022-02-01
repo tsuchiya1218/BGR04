@@ -2,7 +2,7 @@
 session_start();
 
 $g_code="1";
-
+//asdadad
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名

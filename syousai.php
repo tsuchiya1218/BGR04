@@ -39,7 +39,7 @@ try {
 	exit();
 }
 
-foreach ($array as $value) {
+foreach ($array as $value) { //データベースから商品情報取得
 	$g_name = $value["g_name"];
 	$g_image = $value["g_image"];
 	$g_detail = $value["g_detail"];
@@ -61,9 +61,11 @@ foreach ($array as $value) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="./css/XXX.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
 	<?php
 	echo "<p style=\"text-align:right\">";
@@ -72,30 +74,42 @@ foreach ($array as $value) {
 	echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
 	echo "</p>";
 	?>
-<? //table divにする ?>
-	<table name="ramen">
-		<tr>
-			<th><?= $shopname . "</br>" . $g_name ?></th>
-		</tr>
-		<tr>
-			<td><img name=g_image src="./img/<?= $g_image ?>" alt="g_image" width="700" height="500"></td>
-		</tr>
-		<tr>
-			<td><?= $g_detail ?></td>
-		</tr>
-		<tr>
-			<th>単価:<?= $price ?></td>
-		<tr>
-			<th>アレルゲン:</th>
-			<td><?= $allergen ?></td>
-		</tr>
-	</table>
+
+	<div class="center">
+		<div class="shopname">
+			<?= $shopname ?>
+
+		</br>
+		<div class="g_name">
+			<?= $g_name ?>
+		</div>
+
+		<img name=g_image src="./img/<?= $g_image ?>" alt="g_image">
+		</br>
+
+		<p class="g_detail">
+			<?= $g_detail ?>
+		</p>
+
+		<p class="price">
+			単価:<?= $price ?>
+		</p>
+
+
+		<p class="arerugen">
+			アレルゲン:<?= $allergen ?>
+		</p>
+	</div>
 
 	<div class="counter">
-		<button class="button" value="0">－</button>
-		<input type="number" value="0">個
-		<button class="button" value="0">＋</button>
+		<button class="button" value="0" onclick="subOne(this.value);">－</button>
+		<input type="number" value="0" name="input[]">個
+		<button class="button" value="0" onclick="addOne(this.value);">＋</button>
 	</div>
+	<script src="./js/syousai.js"></script>
+
+	<?//javascript 値段受け取り　小計表示
+	?>
 
 	<input type="button" onclick="location.href='Top.php'" value="戻る" />
 	<input type="button" onclick="location.href='cart.php'" value="追加" />

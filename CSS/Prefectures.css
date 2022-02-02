@@ -1,0 +1,43 @@
+.msr_box02 {
+    background-color: #1B73BA;
+    width: 230px;
+  }
+  .msr_box02 a{
+    box-sizing: border-box;
+    display:block;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+  }
+  .msr_box02 p {
+    color: #FFFFFF;
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 0 20px 8px 8px;
+  }
+  .msr_box02 .ttl {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.6;
+    padding: 8px 20px 4px 8px;
+  }
+  .msr_box02 a:after {
+    background-image: url(./img/flat_white_box01.png);
+    background-repeat: no-repeat;
+    bottom: 5px;
+    content: " ";
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    height: 20px;
+    position: absolute;
+    right: 5px;
+    width: 20px;
+  }
+  .msr_box02 a:hover{
+    opacity: 0.8;
+  }
+  

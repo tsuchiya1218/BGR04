@@ -26,7 +26,7 @@ $sql = "SELECT * from cart
         inner join customers on customers.c_code = cart.c_code
 		inner join goods on goods.g_code = cart.g_code";
 
-$g_code=count{$value["cart.g_code"]};
+$g_code = count{$value["cart.g_code"]};
 $stmt = $pdo->prepare($sql);
 
 $stmt->execute(array($g_code)); //array($sid)

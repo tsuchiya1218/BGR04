@@ -1,5 +1,5 @@
-<?php
-session_start();
+ <?php
+ /* session_start();
 
 $g_code = $_GET['g_code'];
 //データベースに接続する
@@ -36,10 +36,26 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
-foreach ($array as $value) {
-	echo "<table border='1'><tr><td>"
-	. $value["g_code"] . "</td>"
-	. "<td>" . $value["g_name"] . "</td>"
-	. "<td>".$value["g_image"]."</tr></teble>";
-}
-?>
+*/
+?> 
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="css/Prefectures.css" rel="stylesheet" type ="text/css">
+
+    <title>Top</title>
+</head>
+
+<body>
+<div class="msr_box02">
+  <a href="#">
+    <img src="/stylerecipe_img/dummy_img02.png" width="230" height="150" alt="img"/>
+    <h3 class="ttl">box</h3>
+    <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+  </a>
+</div>
+
+</body>

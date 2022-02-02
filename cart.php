@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+$sid=session_id();
+
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -20,16 +23,15 @@ try {
 	exit();
 }
 
-//$sid = session_id();
+$sid = $_SESSION["name"];//session_id();
 
 $sql = "SELECT * from cart
         inner join customers on customers.c_code = cart.c_code
-		inner join goods on goods.g_code = cart.g_code";
-
-$g_code = count{$value["cart.g_code"]};
+		inner join goods on goods.g_code = cart.g_code
+		Where session_id=?";
 $stmt = $pdo->prepare($sql);
 
-$stmt->execute(array($g_code)); //array($sid)
+$stmt->execute(array($sid)); 
 
 $array = $stmt->fetchAll();
 ?>

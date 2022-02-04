@@ -23,7 +23,7 @@ function subOne(value) {
 }
 
 function total() {
-    var massage = '小計は' + totalprice + 'です。\nカートに追加しますか?';
+    var massage = '小計は' + totalprice + '円です。\nカートに追加しますか?';
     if (confirm(massage)) {
         alertafter();
     }
@@ -32,5 +32,5 @@ function total() {
     }
 }
     function alertafter() {
-        location.href='cart.php';
+        location.href='tyumon.php';
     }

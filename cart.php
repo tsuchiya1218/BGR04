@@ -72,13 +72,12 @@ $array = $stmt->fetchAll();
                 echo "<td>{$row['price']}</td>";
 				echo "<td>";
 				echo "<button class=\"button\" value=\"0\" onclick=\"/*addOne(this.value);*/location.reload()\">+</button>";
-				echo "";<input type="number" value="{$row['qty']}" name="input[]">
+				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
 				echo "<button class=\"button\" value=\"0\" onclick=\"/*subOne(this.value);*/location.reload()\">-</button>";
 				echo "</td>";
                 echo "</tr>";
 				
 				
-				<button class="button" value="0" onclick="/*subOne(this.value);*/location.reload()">-</button>
         }
 ?>
 		<tr>

@@ -65,20 +65,20 @@ $array = $stmt->fetchAll();
 			<th></th>
 		</tr>
 		<?php
+		$cnt=0;
         foreach($array as $row){
                 echo "<tr>";
                 echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
                 echo "<td>{$row['g_name']}</td>";
                 echo "<td>{$row['price']}</td>";
 				echo "<td>";
-				echo "<button class=\"button\" value=\"0\" onclick=\"/*addOne(this.value);*/location.reload()\">+</button>";
+				echo "<button class=\"button\" value=\"$cnt\" onclick=\"addOne(this.value);\">+</button>";
 				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
-				echo "<button class=\"button\" value=\"0\" onclick=\"/*subOne(this.value);*/location.reload()\">-</button>";
+				echo "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
 				echo "</td>";
 				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\"></td>";
                 echo "</tr>";
-				
-				
+				$cnt = $cnt + 1;
         }
 ?>
 		<tr>

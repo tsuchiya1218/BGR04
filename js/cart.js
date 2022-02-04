@@ -32,5 +32,5 @@ function total() {
     }
 }
     function alertafter() {
-        location.href='.php';
+        location.href='tyumon.php';
     }

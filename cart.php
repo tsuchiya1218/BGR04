@@ -76,7 +76,7 @@ $array = $stmt->fetchAll();
 				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
 				echo "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
 				echo "</td>";
-				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\"></td>";
+				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
                 echo "</tr>";
 				$cnt = $cnt + 1;
         }

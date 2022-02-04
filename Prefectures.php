@@ -1,7 +1,9 @@
  <?php
- /* session_start();
+  session_start();
 
-$g_code = $_GET['g_code'];
+$prefectures = $_GET['prefectures'];
+
+
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -22,23 +24,7 @@ try {
 	print "接続エラー!: " . $e->getMessage();
 	exit();
 }
-
-try {
-	// SQL 文を準備
-	$stmt = $pdo->prepare($sql);
-	// SQL 文を実行
-	$stmt->execute(array($g_code));
-	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
-	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	$stmt = null;
-	$pdo = null;
-} catch (PDOException $e) {
-	print "SQL 実行エラー!: " . $e->getMessage();
-	exit();
-}
-*/
-?> 
-
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -48,14 +34,31 @@ try {
 
     <title>Top</title>
 </head>
-
 <body>
-<div class="msr_box02">
-  <a href="#">
-    <img src="/stylerecipe_img/dummy_img02.png" width="230" height="150" alt="img"/>
-    <h3 class="ttl">box</h3>
-    <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-  </a>
-</div>
+<?php
+	$sql = "SELECT g_name,g_image,g_detail,price,shopname,prefectures FROM goods WHERE prefectures = ?";
+try {
+	// SQL 文を準備
+	$stmt = $pdo->prepare($sql);
+	// SQL 文を実行
+	$stmt->execute(array($prefectures));
+	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
+} catch (PDOException $e) {
+	print "SQL 実行エラー!: " . $e->getMessage();
+	exit();
+}
+
+print"<div class='msr_box02'>";
+while(($rec = $stmt->FETCH(PDO::FETCH_ASSOC))){
+print"<a href='#'>";
+print"<img src='./img/$rec[g_image]' width='230' height='150' alt='img'/>";
+print"<h2 class='ttl'>$rec[g_name]</h2>";
+print"</a>";
+print"<p>$rec[g_detail]</p>";
+print"<p>$rec[prefectures]<br> $rec[shopname]</p>";
+}
+print"</div>";
+?>
 
 </body>
+</html>

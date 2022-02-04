@@ -112,7 +112,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 	?>
 
 	<input type="button" onclick="location.href='Top.php'" value="戻る" />
-	<input type="button" onclick="location.href='cart.php'" value="追加" />
+	<input type="button" onclick="total();" value="追加" />
 </body>
 
 </html>

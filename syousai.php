@@ -79,41 +79,43 @@ foreach ($array as $value) { //データベースから商品情報取得
 		<div class="shopname">
 			<?= $shopname ?>
 
-		</br>
-		<div class="g_name">
-			<?= $g_name ?>
+			</br>
+			<div class="g_name">
+				<?= $g_name ?>
+			</div>
+
+			<img name=g_image src="./img/<?= $g_image ?>" alt="g_image">
+			</br>
+
+			<p class="g_detail">
+				<?= $g_detail ?>
+			</p>
+
+			<p class="price">
+				単価:<?= $price ?>
+			</p>
+
+
+			<p class="arerugen">
+				アレルゲン:<?= $allergen ?>
+			</p>
 		</div>
 
-		<img name=g_image src="./img/<?= $g_image ?>" alt="g_image">
-		</br>
 
-		<p class="g_detail">
-			<?= $g_detail ?>
-		</p>
+		<div class="counter">
+			<button class="button" value="0" onclick="subOne(this.value);">－</button>
+			<form method="post" name=formCount>
+				<input type="number" value="0" name="input[]">個
+			</form>
+			<button class="button" value="0" onclick="addOne(this.value);">＋</button>
+		</div>
 
-		<p class="price">
-			単価:<?= $price ?>
-		</p>
+		<input type="button" onclick="location.href='Top.php'" value="戻る" />
+		<input type="button" onclick="total($price);" value="追加" />
 
+<?//https://javascript.programmer-reference.com/js-action-submit/?>
 
-		<p class="arerugen">
-			アレルゲン:<?= $allergen ?>
-		</p>
-	</div>
-
-	<div class="counter">
-		<button class="button" value="0" onclick="subOne(this.value);">－</button>
-		<input type="number" value="0" name="input[]">個
-		<button class="button" value="0" onclick="addOne(this.value);">＋</button>
-	</div>
-
-	<?//javascript 値段受け取り　小計表示
-	?>
-
-	<input type="button" onclick="location.href='Top.php'" value="戻る" />
-	<input type="button" onclick="total();" value="追加" />
-
-	<script src="./js/syousai.js"></script>
+		<script src="./js/syousai.js"></script>
 
 </body>
 

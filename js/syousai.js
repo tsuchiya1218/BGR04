@@ -25,12 +25,15 @@ function subOne(value) {
 function total() {
     var massage = '小計は' + totalprice + 'です。\nカートに追加しますか?';
     if (confirm(massage)) {
-        alertafter();
+        submit();
     }
     else {
         return false;
     }
 }
-    function alertafter() {
-        location.href='cart.php';
+    function submit() {
+        location.href='cartadd.php';
+        
+
     }
+    

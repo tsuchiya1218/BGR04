@@ -114,6 +114,8 @@ $array = $stmt->fetchAll();
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
 	<input type="button" value="注文画面へ" onclick="document.location='tyumon.php'">
 	<input type="button" onclick="location.href='Top.php'" value="ショッピングを続ける" />
+
+	<script src="./js/cart.js"></script>
 </body>
 
 </html>

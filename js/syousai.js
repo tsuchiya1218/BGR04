@@ -1,5 +1,5 @@
 var plice = 850;//document.getElementById("plice").value;
-var totalplice = 0;
+var totalprice = 0;
 
 
 //カウンター
@@ -24,7 +24,6 @@ function subOne(value) {
 
 function total() {
     var massage = '小計は' + totalprice + 'です。\nカートに追加しますか?';
-    window.confirm(massage);
     if (confirm(massage)) {
         alertafter();
     }
@@ -33,5 +32,5 @@ function total() {
     }
 }
     function alertafter() {
-        location.href='cart.php'
+        location.href='cart.php';
     }

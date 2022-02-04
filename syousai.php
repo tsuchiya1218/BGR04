@@ -106,13 +106,15 @@ foreach ($array as $value) { //データベースから商品情報取得
 		<input type="number" value="0" name="input[]">個
 		<button class="button" value="0" onclick="addOne(this.value);">＋</button>
 	</div>
-	<script src="./js/syousai.js"></script>
 
 	<?//javascript 値段受け取り　小計表示
 	?>
 
 	<input type="button" onclick="location.href='Top.php'" value="戻る" />
 	<input type="button" onclick="total();" value="追加" />
+
+	<script src="./js/syousai.js"></script>
+
 </body>
 
 </html>

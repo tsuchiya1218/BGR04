@@ -43,7 +43,7 @@ $array = $stmt->fetchAll();
 </head>
 
 <body>
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
 
 	<?php
 	echo "<p style=\"text-align:right\">";

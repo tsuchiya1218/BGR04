@@ -32,5 +32,5 @@ function total() {
     }
 }
     function alertafter() {
-        location.href='cart.php';
+        location.href='.php';
     }

@@ -23,15 +23,13 @@ try {
 	exit();
 }
 
-$sid = $_SESSION["name"];//session_id();
+$sid = session_id();
 
 $sql = "SELECT * from cart
-        inner join customers on customers.c_code = cart.c_code
-		inner join goods on goods.g_code = cart.g_code
-		Where session_id=?";
+		inner join goods on goods.g_code = cart.g_code";
 $stmt = $pdo->prepare($sql);
 
-$stmt->execute(array($sid)); 
+$stmt->execute(array()); 
 
 $array = $stmt->fetchAll();
 ?>
@@ -69,10 +67,18 @@ $array = $stmt->fetchAll();
 		<?php
         foreach($array as $row){
                 echo "<tr>";
-                echo "<td>{$row['g_image']}</td>";
+                echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
                 echo "<td>{$row['g_name']}</td>";
                 echo "<td>{$row['price']}</td>";
+				echo "<td>";
+				echo "<button class=\"button\" value=\"0\" onclick=\"/*addOne(this.value);*/location.reload()\">+</button>";
+				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
+				echo "<button class=\"button\" value=\"0\" onclick=\"/*subOne(this.value);*/location.reload()\">-</button>";
+				echo "</td>";
+				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\"></td>";
                 echo "</tr>";
+				
+				
         }
 ?>
 		<tr>
@@ -108,6 +114,8 @@ $array = $stmt->fetchAll();
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
 	<input type="button" value="注文画面へ" onclick="document.location='tyumon.php'">
 	<input type="button" onclick="location.href='Top.php'" value="ショッピングを続ける" />
+
+	<script src="./js/cart.js"></script>
 </body>
 
 </html>

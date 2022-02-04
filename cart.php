@@ -43,7 +43,7 @@ $array = $stmt->fetchAll();
 </head>
 
 <body>
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
 
 	<?php
 	echo "<p style=\"text-align:right\">";
@@ -65,20 +65,20 @@ $array = $stmt->fetchAll();
 			<th></th>
 		</tr>
 		<?php
+		$cnt=0;
         foreach($array as $row){
                 echo "<tr>";
                 echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
                 echo "<td>{$row['g_name']}</td>";
                 echo "<td>{$row['price']}</td>";
 				echo "<td>";
-				echo "<button class=\"button\" value=\"0\" onclick=\"/*addOne(this.value);*/location.reload()\">+</button>";
+				echo "<button class=\"button\" value=\"$cnt\" onclick=\"addOne(this.value);\">+</button>";
 				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
-				echo "<button class=\"button\" value=\"0\" onclick=\"/*subOne(this.value);*/location.reload()\">-</button>";
+				echo "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
 				echo "</td>";
-				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\"></td>";
+				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
                 echo "</tr>";
-				
-				
+				$cnt = $cnt + 1;
         }
 ?>
 		<tr>
@@ -112,8 +112,10 @@ $array = $stmt->fetchAll();
 		</tr>
 	</table><br>
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
-	<input type="button" value="注文画面へ" onclick="document.location='tyumon.php'">
+	<input type="button" value="注文画面へ" onclick="total();">
 	<input type="button" onclick="location.href='Top.php'" value="ショッピングを続ける" />
+
+	<script src="./js/cart.js"></script>
 </body>
 
 </html>

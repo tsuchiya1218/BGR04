@@ -72,13 +72,19 @@ try {
     <br>
     <form action="tyumon_k.php" method="post">
         <div style="text-align: center">
-            <input type="radio" id="1" name="1"><label for="1">JCBBカード</label>
-            <input type="radio" id="2" name="1"><label for="2">二井主友カード</label>
-            <input type="radio" id="3" name="1"><label for="3">四菱銀行カード</label>
-            <input type="radio" id="4" name="1"><label for="4">Misterカード</label>
-            <input type="radio" id="5" name="1"><label for="5">楽夫カード</label><br>
+            <input type="radio" id="1" name="card"><label for="1">JCBBカード</label>
+            <input type="radio" id="2" name="card"><label for="2">二井主友カード</label>
+            <input type="radio" id="3" name="card"><label for="3">四菱銀行カード</label>
+            <input type="radio" id="4" name="card"><label for="4">Misterカード</label>
+            <input type="radio" id="5" name="card"><label for="5">楽夫カード</label><br>
             <input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br>
             <table border="2">
+                <tr>
+                    <td>商品画像</td>
+                    <td>商品名</td>
+                    <td>数量</td>
+                    <td>小計</td>
+                </tr>
             <?php
             $totalprice = 0;
             foreach($array as $value){

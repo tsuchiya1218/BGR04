@@ -75,6 +75,7 @@ $array = $stmt->fetchAll();
 				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
 				echo "<button class=\"button\" value=\"0\" onclick=\"/*subOne(this.value);*/location.reload()\">-</button>";
 				echo "</td>";
+				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\"></td>";
                 echo "</tr>";
 				
 				

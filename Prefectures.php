@@ -1,7 +1,7 @@
  <?php
   session_start();
 
-$prefectures = $_GET['prefectures'];
+$area = $_GET['area'];
 
 
 //データベースに接続する
@@ -36,12 +36,12 @@ try {
 </head>
 <body>
 <?php
-	$sql = "SELECT g_name,g_image,g_detail,price,shopname,prefectures FROM goods WHERE prefectures = ?";
+	$sql = "SELECT g_name,g_image,g_detail,price,shopname,prefectures FROM goods WHERE area = ?";
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
 	// SQL 文を実行
-	$stmt->execute(array($prefectures));
+	$stmt->execute(array($area));
 	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
 } catch (PDOException $e) {
 	print "SQL 実行エラー!: " . $e->getMessage();

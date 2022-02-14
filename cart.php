@@ -72,37 +72,15 @@ $array = $stmt->fetchAll();
                 echo "<td>{$row['g_name']}</td>";
                 echo "<td>{$row['price']}</td>";
 				echo "<td>";
-				echo "<button class=\"button\" value=\"$cnt\" onclick=\"addOne(this.value);\">+</button>";
+				//削除予定カウンターecho "<button class=\"button\" value=\"$cnt\" onclick=\"addOne(this.value);\">+</button>";
 				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
-				echo "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
+				//削除予定カウンターecho "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
 				echo "</td>";
 				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
                 echo "</tr>";
 				$cnt = $cnt + 1;
         }
 ?>
-		<tr>
-			<td width="150" height="80"><img src="img/ラーメン.jpg" alt="八郎" width="193" height="130"></td>
-			<td width="150" height="80">○○ラーメン<br>魂心屋</td>
-			<td width="50" height="80">900円</td>
-			<td width="250" height="80">
-				<!--カウンター入ってたお-->
-
-
-			</td>
-			<td width="120" height="80"><input type="button" value="カートから削除"></td>
-		</tr>
-		<tr>
-			<td width="150" height="80"><img src="img/.jpg" alt="八郎" width="193" height="130"></td>
-			<td width="150" height="80">○○ラーメン<br>次郎</td>
-			<td width="50" height="80">900円</td>
-			<td width="250" height="80">
-				<!--カウンター入ってたお-->
-
-				
-			</td>
-			<td width="120" height="80"><input type="button" value="カートから削除"></td>
-		</tr>
 		<tr>
 			<td></td>
 			<td></td>

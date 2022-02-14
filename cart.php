@@ -62,31 +62,35 @@ $array = $stmt->fetchAll();
 			<th>商品名</th>
 			<th>金額</th>
 			<th>数量</th>
-			<th></th>
+			<th>小計</th>
 		</tr>
 		<?php
-		$cnt=0;
+        $totalprice = 0;
         foreach($array as $row){
                 echo "<tr>";
                 echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
                 echo "<td>{$row['g_name']}</td>";
-                echo "<td>{$row['price']}</td>";
+                echo "<td>{$row['price']}円</td>";
 				echo "<td>";
 				//削除予定カウンターecho "<button class=\"button\" value=\"$cnt\" onclick=\"addOne(this.value);\">+</button>";
 				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
 				//削除予定カウンターecho "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
 				echo "</td>";
+				$syoukei = $row["qty"] * $row["price"];
+				echo "<td>".$syoukei."円</td>";
 				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
-                echo "</tr>";
-				$cnt = $cnt + 1;
-        }
+				echo "</tr>";
+				$totalprice = $totalprice + $syoukei;
+			}
+                    
+				
 ?>
 		<tr>
 			<td></td>
 			<td></td>
 			<td></td>
 			<td>合計金額</td>
-			<td>○○円</td>
+			<td><?=$totalprice?>円</td>
 		</tr>
 	</table><br>
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />

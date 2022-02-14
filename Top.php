@@ -31,14 +31,14 @@ session_start();
 
     <img  src="./img/日本地図.png"  usemap="#Map" alt="日本地図">
     <map name="Map">
-    <area shape="poly" coords="693,2,600,54,615,87,562,128,487,143,478,108,490,82,514,65,519,4,599,60,609,61" class="iframe" href="Prefectures.php?prefectures=北海道" alt="北海道" />
-    <area shape="poly" coords="511,138,538,188,501,294,467,284,473,235,485,167,477,168" class="iframe" href="Prefectures.php?prefectures=青森&prefectures=福島" alt="東北" />
-    <area shape="poly" coords="498,295,500,334,476,357,456,345,443,301,459,291,481,287,481,287" class="iframe" href="Prefectures.php?prefectures[]=東京&prefectures=[]神奈川" alt="関東" />
-    <area shape="poly" coords="408,271,394,274,375,317,399,359,426,363,448,357,436,303,460,282,462,252" class="iframe" href="Prefectures.php?prefectures=富山" alt="中部" />
-    <area shape="poly" coords="333,328,336,341,330,353,358,358,342,392,366,398,397,367,379,331" class="iframe" href="Prefectures.php?prefectures=京都" alt="近畿" />
-    <area shape="poly" coords="332,329,328,357,274,379,247,380,244,369,291,331" class="iframe" href="Prefectures.php?prefectures=広島" alt="中国" />
-    <area shape="poly" coords="334,376,317,367,288,379,276,397,288,427,342,388" class="iframe" href="Prefectures.php?prefectures=徳島" alt="四国" />
-    <area shape="poly" coords="234,376,193,397,143,570,272,421,255,391" class="iframe" href="Prefectures.php?prefectures[]=福岡&prefectures[]=熊本" alt="九州" />
+    <area shape="poly" coords="693,2,600,54,615,87,562,128,487,143,478,108,490,82,514,65,519,4,599,60,609,61" class="iframe" href="Prefectures.php?area=北" alt="北海道" />
+    <area shape="poly" coords="511,138,538,188,501,294,467,284,473,235,485,167,477,168" class="iframe" href="Prefectures.php?area=東" alt="東北" />
+    <area shape="poly" coords="498,295,500,334,476,357,456,345,443,301,459,291,481,287,481,287" class="iframe" href="Prefectures.php?area=関" alt="関東" />
+    <area shape="poly" coords="408,271,394,274,375,317,399,359,426,363,448,357,436,303,460,282,462,252" class="iframe" href="Prefectures.php?area=中" alt="中部" />
+    <area shape="poly" coords="333,328,336,341,330,353,358,358,342,392,366,398,397,367,379,331" class="iframe" href="Prefectures.php?area=近" alt="近畿" />
+    <area shape="poly" coords="332,329,328,357,274,379,247,380,244,369,291,331" class="iframe" href="Prefectures.php?area=国" alt="中国" />
+    <area shape="poly" coords="334,376,317,367,288,379,276,397,288,427,342,388" class="iframe" href="Prefectures.php?area=四" alt="四国" />
+    <area shape="poly" coords="234,376,193,397,143,570,272,421,255,391" class="iframe" href="Prefectures.php?area=九" alt="九州" />
     </map>
 
     <input type="button" value="好みの味を探す" onClick="document.location='kensaku.php'">

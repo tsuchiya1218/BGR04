@@ -102,14 +102,6 @@ foreach ($array as $value) { //データベースから商品情報取得
 		</div>
 
 
-		<div class="counter">
-			<button class="button" value="0" onclick="subOne(this.value);">－</button>
-			<form method="post" name=formCount>
-				<input type="number" value="0" name="input[]">個
-			</form>
-			<button class="button" value="0" onclick="addOne(this.value);">＋</button>
-		</div>
-
 		<input type="button" onclick="location.href='Top.php'" value="戻る" />
 		<input type="button" onclick="total($price);" value="追加" />
 

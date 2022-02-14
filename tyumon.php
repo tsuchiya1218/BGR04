@@ -78,6 +78,7 @@ try {
             <input type="radio" id="4" name="card"><label for="4">Misterカード</label>
             <input type="radio" id="5" name="card"><label for="5">楽夫カード</label><br>
             <input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br>
+            <!-- ↑　の矢印をcssで消す-->
             <table border="2">
                 <tr>
                     <td>商品画像</td>

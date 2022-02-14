@@ -86,9 +86,9 @@ $array = $stmt->fetchAll();
 			<td width="150" height="80">○○ラーメン<br>魂心屋</td>
 			<td width="50" height="80">900円</td>
 			<td width="250" height="80">
-				<button class="button" value="0" onclick="/*addOne(this.value);*/location.reload()">+</button>
-				<input type="number" value="0" name="input[]">
-				<button class="button" value="0" onclick="/*subOne(this.value);*/location.reload()">-</button>
+				<!--カウンター入ってたお-->
+
+
 			</td>
 			<td width="120" height="80"><input type="button" value="カートから削除"></td>
 		</tr>
@@ -97,9 +97,9 @@ $array = $stmt->fetchAll();
 			<td width="150" height="80">○○ラーメン<br>次郎</td>
 			<td width="50" height="80">900円</td>
 			<td width="250" height="80">
-				<button class="button" value="0" onclick="/*addOne(this.value);*/location.reload()">+</button>
-				<input type="number" value="0" name="input[]">
-				<button class="button" value="0" onclick="/*subOne(this.value);*/location.reload()">-</button>
+				<!--カウンター入ってたお-->
+
+				
 			</td>
 			<td width="120" height="80"><input type="button" value="カートから削除"></td>
 		</tr>

@@ -36,7 +36,7 @@ try {
 </head>
 <body>
 <?php
-	$sql = "SELECT g_name,g_image,g_detail,price,shopname,prefectures FROM goods WHERE area = ?";
+	$sql = "SELECT g_code,g_name,g_image,g_detail,price,shopname,prefectures FROM goods WHERE area = ?";
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
@@ -50,7 +50,7 @@ try {
 
 print"<div class='msr_box02'>";
 while(($rec = $stmt->FETCH(PDO::FETCH_ASSOC))){
-print"<a href='#'>";
+print"<a href='syousai.php?g_code = $rec[g_code]' target='_blank'>";
 print"<img src='./img/$rec[g_image]' width='230' height='150' alt='img'/>";
 print"<h2 class='ttl'>$rec[g_name]</h2>";
 print"</a>";

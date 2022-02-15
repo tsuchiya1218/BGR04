@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$sid=session_id();
 
 //データベースに接続する
 try {
@@ -23,15 +22,16 @@ try {
 	exit();
 }
 
-$sid = session_id();
 
 $sql = "SELECT * from cart
 		inner join goods on goods.g_code = cart.g_code";
 $stmt = $pdo->prepare($sql);
 
-$stmt->execute(array()); 
+$stmt->execute(array());
 
 $array = $stmt->fetchAll();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -65,40 +65,51 @@ $array = $stmt->fetchAll();
 			<th>小計</th>
 		</tr>
 		<form method="POST" action="kousin.php">
-		<?php
-        $totalprice = 0;
-		$ArrayG_code =array();
-        foreach($array as $row){
-                echo "<tr>";
-                echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
-                echo "<td>{$row['g_name']}</td>";
-                echo "<td>{$row['price']}円</td>";
+			<?php
+			$totalprice = 0;
+			$ArrayG_code=array();
+			foreach ($array as $row) {
+				array_push($ArrayG_code,$row["g_code"]);
+				echo "<tr>";
+				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
+				echo "<td>{$row['g_name']}</td>";
+				echo "<td>{$row['price']}円</td>";
 				echo "<td>";
-
-				echo "<input type=\"number\" value=\"{$row['qty']}\">";
+				echo <<< EOM
 				
+				<select name="qty">
+				EOM;
+				for ($i = 1; $i <= $row["stock"]; $i++) {
+					if ($i != $row["qty"]) {
+						echo "            <option align = right value=$i>{$i}個</option>\n";
+					} else {
+						echo "            <option align = right value=$i selected>{$i}個</option>\n";
+					}
+				}
+
 				echo "</td>";
 				$syoukei = $row["qty"] * $row["price"];
-				echo "<td>".$syoukei."円</td>";
+				echo "<td>" . $syoukei . "円</td>";
 				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
 				echo "</tr>";
 				$totalprice = $totalprice + $syoukei;
-				
-				$g_code = $row["g_code"];
-				array_push($ArrayG_code,$g_code);
-						}	
-			for($i=0; $i < count($ArrayG_code); $i++) {
-				echo "<input type='hidden' name='ArrayG_code' value=".$ArrayG_code[$i].">";
-				echo $ArrayG_code[$i];
+
 			}
-?>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>合計金額</td>
-			<td><?=$totalprice?>円</td>
-		</tr>
+			$max=count($ArrayG_code);//カートの商品の数
+			for($i=0;$i<$max;$i++){
+				$_session["CartGoodsQty"]=$max;//UPDATE文で商品数(for)に使う
+				$_session["ArrayG_code"][$i]=$ArrayG_code[$i];//商品数をもとにfor文でg_code取得させUPDATEさせる
+			}
+
+
+			?>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>合計金額</td>
+				<td><?= $totalprice ?>円</td>
+			</tr>
 	</table><br>
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
 	<input type="button" value="注文画面へ" onclick="total();">

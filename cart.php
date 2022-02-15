@@ -64,26 +64,33 @@ $array = $stmt->fetchAll();
 			<th>数量</th>
 			<th>小計</th>
 		</tr>
+		<form method="POST" action="kousin.php">
 		<?php
         $totalprice = 0;
+		$ArrayG_code =array();
         foreach($array as $row){
                 echo "<tr>";
                 echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
                 echo "<td>{$row['g_name']}</td>";
                 echo "<td>{$row['price']}円</td>";
 				echo "<td>";
-				//削除予定カウンターecho "<button class=\"button\" value=\"$cnt\" onclick=\"addOne(this.value);\">+</button>";
-				echo "<input type=\"number\" value=\"{$row['qty']}\" name=\"input[]\">";
-				//削除予定カウンターecho "<button class=\"button\" value=\"$cnt\" onclick=\"subOne(this.value);\">-</button>";
+
+				echo "<input type=\"number\" value=\"{$row['qty']}\">";
+				
 				echo "</td>";
 				$syoukei = $row["qty"] * $row["price"];
 				echo "<td>".$syoukei."円</td>";
 				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
 				echo "</tr>";
 				$totalprice = $totalprice + $syoukei;
-			}
-                    
 				
+				$g_code = $row["g_code"];
+				array_push($ArrayG_code,$g_code);
+						}	
+			for($i=0; $i < count($ArrayG_code); $i++) {
+				echo "<input type='hidden' name='ArrayG_code' value=".$ArrayG_code[$i].">";
+				echo $ArrayG_code[$i];
+			}
 ?>
 		<tr>
 			<td></td>
@@ -96,7 +103,8 @@ $array = $stmt->fetchAll();
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
 	<input type="button" value="注文画面へ" onclick="total();">
 	<input type="button" onclick="location.href='Top.php'" value="ショッピングを続ける" />
-
+	<input type="submit" value="更新">
+	</from>
 	<script src="./js/cart.js"></script>
 </body>
 

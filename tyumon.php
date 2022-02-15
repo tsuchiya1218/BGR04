@@ -78,8 +78,8 @@ foreach ($array as $value) {
         <a href="addresssinki">住所新規</a><br>
     <table border="2">
         <tr>
-            <td class="" rowspan="2">支払い方法選択</td>
-            <td class="">
+            <td rowspan="2">支払い方法選択</td>
+            <td class="card">
                 <form action="tyumon_k.php" method="post">
                 <div style="text-align: center">
                 <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
@@ -89,7 +89,7 @@ foreach ($array as $value) {
                 <input type="radio" id="5" value="楽夫カード" name="card"><label for="5">楽夫カード</label><br>
             </td>
         <tr>
-            <td class=""><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br></td>
+            <td class="CardNumber"><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br></td>
             <!-- ↑　の矢印をcssで消す-->
         </tr>
     </table>
@@ -98,20 +98,20 @@ foreach ($array as $value) {
             <h2>※以下の御注文でお間違いがないか必ず御確認ください。</h2>
             <table border="2">
                 <tr>
-                    <td class="">商品画像</td>
-                    <td class="">商品名</td>
-                    <td class="">数量</td>
-                    <td class="">小計</td>
+                    <td>商品画像</td>
+                    <td>商品名</td>
+                    <td>数量</td>
+                    <td>小計</td>
                 </tr>
             <?php
             $totalprice = 0;
             foreach($array as $value){
                 echo "<tr>";
-                    echo "<td class=""><img src='img/{$value["g_image"]}' alt='g_image' ></td>";
-                    echo "<td class="">{$value["g_name"]}<br>{$value["shopname"]}</td>";
-                    echo "<td class="">{$value["qty"]}個</td>";
+                    echo "<td class='image'><img src='img/{$value["g_image"]}' alt='g_image' ></td>";
+                    echo "<td class='name'>{$value["g_name"]}<br>{$value["shopname"]}</td>";
+                    echo "<td class='qty'>{$value["qty"]}個</td>";
                     $syoukei = $value["qty"] * $value["price"];
-                    echo "<td class="">".$syoukei."円</td>";
+                    echo "<td class='syoukei'>".$syoukei."円</td>";
                     $totalprice = $totalprice + $syoukei;
                 echo "</tr>";
             }

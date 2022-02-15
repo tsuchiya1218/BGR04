@@ -102,7 +102,11 @@ foreach ($array as $value) { //データベースから商品情報取得
 		</div>
 
 		<form method="post" action="CartInsert.php">
-			<input type="number" size="1" name="qty" value="0" step="1" min="0" max="<?$stock?>">
+			<?/*maxが正常に動くか確認
+			formでインサート文実行ページに送る
+			インサート文実行ページ作る
+			動作確認*/?>
+			<input type="number" name="qty" value="0" step="1" min="0" max="<?$stock?>">
 
 			<input type="button" onclick="location.href='Top.php'" value="戻る" />
 			<input type="submit" value="追加" />

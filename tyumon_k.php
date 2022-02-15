@@ -43,7 +43,7 @@ foreach ($array as $value) {
     $c_address2 = $value["c_address2"];
 }
 
-echo $_POST["card"];
+$card = $_POST["card"];
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ echo $_POST["card"];
     echo "</p>";
     ?>
 
-    <p>住所：<?=$c_address1?>.<?=$c_address2?></p>
+    <p>住所：<?=$c_address1.$c_address2?></p>
     <p>カード会社：<?=$card?></p>
     <table border="2">
         <tr>

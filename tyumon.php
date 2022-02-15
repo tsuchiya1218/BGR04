@@ -21,7 +21,7 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM cart inner join goods on goods.g_code = cart.g_code";
+$sql = "SELECT * FROM cart inner join customers on customers.c_code = cart.c_code inner join goods on goods.g_code = cart.g_code";
 
 try {
 	// SQL 文を準備
@@ -36,7 +36,12 @@ try {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
 }
-
+foreach ($array as $value) { 
+    //データベースから顧客情報取得
+    $c_name = $value["c_name"];
+    $c_address1 = $value["c_address1"];
+    $c_address2 = $value["c_address2"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -65,7 +70,7 @@ try {
 <body>
     <p>注文画面</p>
     <div style="text-align: center">
-        登録住所：○○　<a href="addresshenkou.php">変更</a><br>
+        登録住所：<?=$c_address1.$c_address2?><a href="addresshenkou.php">変更</a><br>
 
         <a href="addresssinki">住所新規</a><br>
     </div>

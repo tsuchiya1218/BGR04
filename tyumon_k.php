@@ -21,12 +21,7 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM cart inner join customers on costomers.c_code = cart.c_code 
-
-
-
-
-inner join goods on goods.g_code = cart.g_code";
+$sql = "SELECT * FROM cart inner join customers on customers.c_code = cart.c_code inner join goods on goods.g_code = cart.g_code";
 
 try {
 	// SQL 文を準備
@@ -48,7 +43,7 @@ foreach ($array as $value) {
     $c_address2 = $value["c_address2"];
 }
 
-echo $_POST["card"];
+$card = $_POST["card"];
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +66,7 @@ echo $_POST["card"];
     echo "</p>";
     ?>
 
-    <p>住所：<?=$c_address1?>.<?=$c_address1?></p>
+    <p>住所：<?=$c_address1.$c_address2?></p>
     <p>カード会社：<?=$card?></p>
     <table border="2">
         <tr>

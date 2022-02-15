@@ -72,11 +72,11 @@ try {
     <br>
     <form action="tyumon_k.php" method="post">
         <div style="text-align: center">
-            <input type="radio" id="1" name="card"><label for="1">JCBBカード</label>
-            <input type="radio" id="2" name="card"><label for="2">二井主友カード</label>
-            <input type="radio" id="3" name="card"><label for="3">四菱銀行カード</label>
-            <input type="radio" id="4" name="card"><label for="4">Misterカード</label>
-            <input type="radio" id="5" name="card"><label for="5">楽夫カード</label><br>
+            <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
+            <input type="radio" id="2" value="二井主友カード" name="card"><label for="2">二井主友カード</label>
+            <input type="radio" id="3" value="四菱銀行カード" name="card"><label for="3">四菱銀行カード</label>
+            <input type="radio" id="4" value="Misterカード" name="card"><label for="4">Misterカード</label>
+            <input type="radio" id="5" value="楽夫カード" name="card"><label for="5">楽夫カード</label><br>
             <input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br>
             <!-- ↑　の矢印をcssで消す-->
             <table border="2">

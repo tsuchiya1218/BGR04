@@ -105,7 +105,11 @@ foreach ($array as $value) { //データベースから商品情報取得
 			<?/*maxが正常に動くか確認
 			formでインサート文実行ページに送る
 			インサート文実行ページ作る
-			動作確認*/?>
+			動作確認
+			
+			カートに入ってたら、sqlでカートとケツする*/?>
+			
+
 			<input type="number" name="qty" value="0" step="1" min="0" max="<?$stock?>">
 
 			<input type="button" onclick="location.href='Top.php'" value="戻る" />

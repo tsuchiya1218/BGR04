@@ -67,7 +67,7 @@ foreach ($array as $value) {
     </h3>
 </header>
 
-<!--次回class=""を記入する-->
+<!--次回class=""の中身記入する-->
 <!--https://www.tenkaippin.co.jp/store/-->
 
 <body>

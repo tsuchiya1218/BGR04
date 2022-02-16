@@ -1,23 +1,17 @@
-<?php
-$qty = $_POST["qty"];
-echo $qty;
-?>
+ <?php
 
-<?php
- $name = $_POST['name'];
- $author = $_POST['author'];
- $publish = $_POST['publish'];
- $detail = $_POST['detail'];
- $price = $_POST['price'];
- $category = $_POST['category'];
- 
+$g_code = $_POST['g_code'];
+$c_code = $_POST['c_code'];
+$qty = $_POST['qty'];
+
+ session_start();
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
-	$db_name = "20jy0212";	// データベース名(自分の学籍番号を入力)
+	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
 
-	$user_name = "20jy0212";	// ユーザ名(自分の学籍番号を入力)
-	$user_pass = "20jy0212";	// パスワード(自分の学籍番号を入力)
+	$user_name = "20jy0204";	// ユーザ名(自分の学籍番号を入力)
+	$user_pass = "20jy0204";	// パスワード(自分の学籍番号を入力)
 
 	// データソース名設定
 	$dsn = "sqlsrv:server=$server_name;database=$db_name";
@@ -45,15 +39,15 @@ $array = $stmt->fetchALL(PDO::FETCH_ASSOC);
 	exit();
 }
 
-$next_bid = $array[0]['maxid'] + 1;
+$cart_code = $array[0]['maxid'] + 1;
 //SQL分を$sqlに代入
 if($g_code)
-$sql = "INSERT INTO book VALUES(?,?,?,?,?,?,?)";
+$sql = "INSERT INTO book VALUES(?,?,?,?)";
 try{
 	//SQL文を準備
 	$stmt = $pdo->prepare($sql);
 	//SQL文を実行
-	$stmt->execute(array($next_bid,$name,$author,$publish,$detail,$category,$price));
+	$stmt->execute(array($cart_code,$g_code,$c_code,$qty));
 
 	//$array = $stmt->fetchALL(PDO::FETCH_ASSOC);
 	$stmt = null;

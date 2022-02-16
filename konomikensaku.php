@@ -77,7 +77,9 @@ $nti
 </div>
 EOM;
 foreach($array as $value){
+    //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
     echo <<< EOM
+    <a href="syousai.php?g_code = $value[g_code]">
     <tr>
     <td>{$value["g_name"]}</td>
     <td><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></td>
@@ -85,6 +87,7 @@ foreach($array as $value){
     <td>{$value["price"]}</td>
     <td>{$value["allergen"]}</td>
     </tr>
+    </a>
     EOM;
 }
 ?>

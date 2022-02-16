@@ -9,7 +9,7 @@ for ($j = 1; $j <= 2; $j++) {
 
 $CartGoodsQty=$_SESSION['CartGoodsQty'];
 for ($i = 0; $i < $_SESSION['CartGoodsQty']; $i++) {
-    echo $_SESSION['ArrayG_code'][$i]; 
+    $_SESSION['ArrayG_code'][$i]; 
 
 }
 

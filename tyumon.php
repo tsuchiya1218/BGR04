@@ -48,6 +48,7 @@ foreach ($array as $value) {
 
 <head>
     <meta charset="UTF-8">
+    <link href="css/tyumon.css" rel="stylesheet" type ="text/css">
     <title>ラーメン屋 注文　支払い選択</title>
 </head>
 <header>
@@ -78,7 +79,7 @@ foreach ($array as $value) {
         <a href="addresssinki">住所新規</a><br>
     <table border="2">
         <tr>
-            <td rowspan="2">支払い方法選択</td>
+            <th rowspan="2">支払い方法選択</th>
             <td class="card">
                 <form action="tyumon_k.php" method="post">
                 <div style="text-align: center">
@@ -98,11 +99,11 @@ foreach ($array as $value) {
             <h2>※以下の御注文でお間違いがないか必ず御確認ください。</h2>
             <table border="2">
                 <tr>
-                    <td>商品画像</td>
-                    <td>商品名</td>
-                    <td>数量</td>
-                    <td>小計</td>
-                </tr>
+                    <th>商品画像</th>
+                    <th>商品名</th>
+                    <th>数量</th>
+                    <th>小計</th>
+                </tr>       
             <?php
             $totalprice = 0;
             foreach($array as $value){

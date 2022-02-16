@@ -67,23 +67,35 @@ foreach ($array as $value) {
     </h3>
 </header>
 
+<!--次回class=""の中身記入する-->
+<!--https://www.tenkaippin.co.jp/store/-->
+
 <body>
     <p>注文画面</p>
-    <div style="text-align: center">
-        登録住所：<?=$c_address1.$c_address2?><a href="addresshenkou.php">変更</a><br>
-
+        <p>配送先住所</p>
+        登録されている住所：<?=$c_address1.$c_address2?><br>
+        <a href="addresshenkou.php">住所変更</a>
         <a href="addresssinki">住所新規</a><br>
-    </div>
-    <br>
-    <form action="tyumon_k.php" method="post">
-        <div style="text-align: center">
-            <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
-            <input type="radio" id="2" value="二井主友カード" name="card"><label for="2">二井主友カード</label>
-            <input type="radio" id="3" value="四菱銀行カード" name="card"><label for="3">四菱銀行カード</label>
-            <input type="radio" id="4" value="Misterカード" name="card"><label for="4">Misterカード</label>
-            <input type="radio" id="5" value="楽夫カード" name="card"><label for="5">楽夫カード</label><br>
-            <input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br>
+    <table border="2">
+        <tr>
+            <td rowspan="2">支払い方法選択</td>
+            <td class="card">
+                <form action="tyumon_k.php" method="post">
+                <div style="text-align: center">
+                <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
+                <input type="radio" id="2" value="二井主友カード" name="card"><label for="2">二井主友カード</label>
+                <input type="radio" id="3" value="四菱銀行カード" name="card"><label for="3">四菱銀行カード</label>
+                <input type="radio" id="4" value="Misterカード" name="card"><label for="4">Misterカード</label>
+                <input type="radio" id="5" value="楽夫カード" name="card"><label for="5">楽夫カード</label><br>
+            </td>
+        <tr>
+            <td class="CardNumber"><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /><br></td>
             <!-- ↑　の矢印をcssで消す-->
+        </tr>
+    </table>
+
+
+            <h2>※以下の御注文でお間違いがないか必ず御確認ください。</h2>
             <table border="2">
                 <tr>
                     <td>商品画像</td>
@@ -95,19 +107,17 @@ foreach ($array as $value) {
             $totalprice = 0;
             foreach($array as $value){
                 echo "<tr>";
-                    echo "<td><img src='img/{$value["g_image"]}' alt='g_image' ></td>";
-                    echo "<td>{$value["g_name"]}<br>{$value["shopname"]}</td>";
-                    echo "<td>{$value["qty"]}個</td>";
+                    echo "<td class='image'><img src='img/{$value["g_image"]}' alt='g_image' ></td>";
+                    echo "<td class='name'>{$value["g_name"]}<br>{$value["shopname"]}</td>";
+                    echo "<td class='qty'>{$value["qty"]}個</td>";
                     $syoukei = $value["qty"] * $value["price"];
-                    echo "<td>".$syoukei."円</td>";
+                    echo "<td class='syoukei'>".$syoukei."円</td>";
                     $totalprice = $totalprice + $syoukei;
                 echo "</tr>";
             }
             ?> 
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td>合計金額</td>
+                    <td colspan="3">合計金額</td>
                     <td><?= $totalprice ?>円</td>
                 </tr>
             </table>
@@ -120,35 +130,7 @@ foreach ($array as $value) {
 
 </body>
 <footer>
-    <p style="text-align: left">　　
-        <a href="">ホーム</a>
-    </p>
-    <p style="text-align: center">
-        <a href="">日本地図で検索</a>
-    </p>
-    <p style="text-align: center">
-        <a href="">好みで検索</a>
-    </p>
-    <p style="text-align: center">
-        <a href="">カート内一覧</a>
-    </p>
-    <p style="text-align: center">
-        <a href="">注文履歴</a>
-    </p>
-    <p style="text-align: right">
-        <a href="">お問い合わせ</a>
-    </p>
-    <p style="text-align: right">
-        <a href="">会社概要</a>
-    </p>
-    <p style="text-align: right">
-        <a href="">サイトマップ</a>
-    </p>
-    <p style="text-align: right">
-        <a href="">プライバシーポリシー</a>
-    </p>
-    <p><small>&copy;Copyright ramen farm.</small>
-    <p>
+ 
 </footer>
 
 </html>

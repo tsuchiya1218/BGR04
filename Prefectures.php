@@ -36,7 +36,7 @@ try {
 </head>
 <body>
 <?php
-	$sql = "SELECT g_code,g_name,g_image,g_detail,price,shopname,prefectures FROM goods WHERE area = ?";
+	$sql = "SELECT * FROM goods WHERE area = ?";
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
@@ -48,16 +48,20 @@ try {
 	exit();
 }
 
-print"<div class='msr_box02'>";
+
 while(($rec = $stmt->FETCH(PDO::FETCH_ASSOC))){
-print"<a href='syousai.php?g_code = $rec[g_code]' target='_blank'>";
-print"<img src='./img/$rec[g_image]' width='230' height='150' alt='img'/>";
-print"<h2 class='ttl'>$rec[g_name]</h2>";
-print"</a>";
-print"<p>$rec[g_detail]</p>";
-print"<p>$rec[prefectures]<br> $rec[shopname]</p>";
+//cssでflexに設定
+echo <<< unk
+<div class='msr_box02' >
+<a href="syousai.php?id=$rec[g_code]" target="_blank">
+<img src="./img/$rec[g_image]" width="230" height="150" alt="img"/>
+<h2 class="ttl">$rec[g_name]</h2>
+</a>
+<p>$rec[g_detail]</p>
+<p>$rec[prefectures]<br> $rec[shopname]</p>
+</div>
+unk;
 }
-print"</div>";
 ?>
 
 </body>

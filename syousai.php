@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$g_code = 2;
+$g_code = $_GET["id"];
 //データベースに接続する
 try {
 	$server_name = "10.42.129.3";	// サーバ名
@@ -23,6 +23,28 @@ try {
 	exit();
 }
 
+$sqlcart="SELECT * FROM cart";
+try{
+//SQL文を準備
+$stmt = $pdo->prepare($sqlcart);
+//SQL文を実行
+$stmt->execute();
+$array = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+}catch(PDOException $e){
+	print"SQL実行エラー！：".$e->getMessage();
+	exit();
+}
+
+
+$check=0;
+foreach ($array as $cart) {
+	if($cart["g_code"]==$g_code){
+		$check=1;//商品がある場合
+	}else{
+	}
+}
+
 $sql = "SELECT * FROM goods WHERE g_code=?";
 
 try {
@@ -31,7 +53,8 @@ try {
 	// SQL 文を実行
 	$stmt->execute(array($g_code));
 	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
-	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	$array = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
 	$stmt = null;
 	$pdo = null;
 } catch (PDOException $e) {
@@ -40,6 +63,7 @@ try {
 }
 
 foreach ($array as $value) { //データベースから商品情報取得
+	$g_code = $value["g_code"];
 	$g_name = $value["g_name"];
 	$g_image = $value["g_image"];
 	$g_detail = $value["g_detail"];
@@ -101,22 +125,32 @@ foreach ($array as $value) { //データベースから商品情報取得
 			</p>
 		</div>
 
+		
+
 		<form method="post" action="CartInsert.php">
-			<?/*maxが正常に動くか確認
-			formでインサート文実行ページに送る
-			インサート文実行ページ作る
-			動作確認
+
 			
-			カートに入ってたら、sqlでカートとケツする*/?>
-			
+			<input type="hidden" name="g_code" value="<?=$g_code?>">
+			<input type="hidden" name="c_code" value="1">
 
 			<input type="number" name="qty" value="0" step="1" min="0" max="<?$stock?>">
-
+			
 			<input type="button" onclick="location.href='Top.php'" value="戻る" />
-			<input type="submit" value="追加" />
+			<?php
+			
+			if($check==0){
+				echo <<< eom
+				<input type="submit" value="追加" />
+				eom;
+			}else{
+				echo <<< eom
+				すでにカートにあります。			
+			eom;
+			}
+			
+			?>
 		</form>
 
-		<script src="./js/syousai.js"></script>
 
 </body>
 

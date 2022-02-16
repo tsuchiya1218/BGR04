@@ -1,29 +1,30 @@
+html{
+    background-color: black;/*背景色の色を黒にする*/
+}
 * {
     box-sizing: border-box;
 }
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #e6e6e6;
-    letter-spacing : 0.2em;
- }
 header {
-    padding: 30px 4% 10px;
+    padding: 30px 4% 10px;/*余白を 上:30px のパディング  左と右: 4% のパディング 下:10px のパディング */
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #fff;
     display: flex;
     align-items: center;
+    background-color: goldenrod;
 }
+body{
+    padding-top: 90px; /* ヘッダーの後ろに要素が隠れないようにするため */
+    color: white;/*フォントの色を白にする*/
+}
+
 h1 {
     margin: 0; padding: 0;
     font-size: 20px;
 }
 a {	
     text-decoration: none;
-    color: #4b4b4b;
+    color: white;
 }
 nav {
     margin: 0 0 0 auto;
@@ -36,6 +37,7 @@ ul {
 li {
     margin: 0 0 0 15px;
     font-size: 14px;
+    /*https://jajaaan.co.jp/css/css-headline/*/
 }
 
 footer {

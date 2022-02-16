@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+$type = $_POST["type"];
+$tit = $_POST["taste_intensity"];
+$nti = $_POST["noodle_thickness"];
 try {
 	$server_name = "10.42.129.3";	// サーバ名
 	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
@@ -21,13 +24,12 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM goods WHERE ";
-
+$sql = "SELECT * FROM goods WHERE type=? and taste_intensity=? and noodle_thickness=?";
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
 	// SQL 文を実行
-	$stmt->execute(array($g_code));
+	$stmt->execute(array($type,$tit,$nti));
 	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
 	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$stmt = null;
@@ -65,15 +67,28 @@ try {
         <th>値段</th>
         <th>アレルギー</th>
     </tr>
+    <div class="zyoken">
     <?php
+echo <<< EOM
+あなたの条件検索結果</br>
+$type</br>
+$tit</br>
+$nti
+</div>
+EOM;
 foreach($array as $value){
-    echo "<tr>\n";
-    echo "<td>{$value["g_name"]}</td>\n";
-    echo "<td>{$value["g_image"]}</td>\n";
-    echo "<td>{$value["g_detail"]}</td>\n";
-    echo "<td>{$value["price"]}</td>\n";
-    echo "<td>{$value["allergen"]}</td>\n";
-    echo "</tr>\n";
+    //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
+    echo <<< EOM
+    <a href="syousai.php?g_code = $value[g_code]">
+    <tr>
+    <td>{$value["g_name"]}</td>
+    <td><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></td>
+    <td>{$value["g_detail"]}</td>
+    <td>{$value["price"]}</td>
+    <td>{$value["allergen"]}</td>
+    </tr>
+    </a>
+    EOM;
 }
 ?>
     </table>

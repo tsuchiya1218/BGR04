@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+echo $type = $_POST["type"];
+echo $tit = $_POST["taste_intensity"];
+echo $nti = $_POST["noodle_thickness"];
+/*
 try {
 	$server_name = "10.42.129.3";	// サーバ名
 	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
@@ -21,13 +25,12 @@ try {
 	exit();
 }
 
-$sql = "SELECT * FROM goods WHERE ";
-
+$sql = "SELECT * FROM goods WHERE type=? and taste_intensity=? and noodle_thickness=?";
 try {
 	// SQL 文を準備
 	$stmt = $pdo->prepare($sql);
 	// SQL 文を実行
-	$stmt->execute(array($g_code));
+	$stmt->execute(array($type,$tit,$nti));
 	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
 	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	$stmt = null;
@@ -35,7 +38,7 @@ try {
 } catch (PDOException $e) {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
-}
+} */
 ?>
 
 <!DOCTYPE html>

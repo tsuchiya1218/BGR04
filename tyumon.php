@@ -48,41 +48,42 @@ foreach ($array as $value) {
 
 <head>
     <meta charset="UTF-8">
+    <link href="css/common.css" rel="stylesheet" type ="text/css">
     <link href="css/tyumon.css" rel="stylesheet" type ="text/css">
     <title>ラーメン屋 注文　支払い選択</title>
 </head>
-<header>
-    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
-
-    <h3>
-        <p style="text-align: right">
-            ユーザー名<br>
-            <?php
-            echo "<p style=\"text-align:right\">";
-            echo "{$_SESSION["name"]}でログイン中</br>";
-
-            echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
-            echo "</p>";
-            ?>
-        </p>
-    </h3>
-</header>
-
-<!--次回class=""の中身記入する-->
-<!--https://www.tenkaippin.co.jp/store/-->
 
 <body>
-    <p>注文画面</p>
-        <p>配送先住所</p>
-        登録されている住所：<?=$c_address1.$c_address2?><br>
-        <a href="addresshenkou.php">住所変更</a>
-        <a href="addresssinki">住所新規</a><br>
+<header>
+    <h1>
+        <a href="/">TOP</a>
+    </h1>
+    <nav class="pc-nav">
+        <ul>
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#">日本地図で検索</a></li>
+            <li><a href="#">好みで検索</a></li>
+            <li><a href="#">カート内一覧</a></li>
+            <li><a href="#">注文履歴</a></li>
+        </ul>
+    </nav>
+</header>
+
     <table border="2">
+        <tr>
+            <th>配送先住所</th>
+            <td>
+                <?=$c_address1.$c_address2?>
+                <a href="addresshenkou.php">住所変更</a>
+                <a href="addresssinki">住所新規</a>       
+            </td>
+
+        </tr>
+
         <tr>
             <th rowspan="2">支払い方法選択</th>
             <td class="card">
                 <form action="tyumon_k.php" method="post">
-                <div style="text-align: center">
                 <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
                 <input type="radio" id="2" value="二井主友カード" name="card"><label for="2">二井主友カード</label>
                 <input type="radio" id="3" value="四菱銀行カード" name="card"><label for="3">四菱銀行カード</label>
@@ -103,7 +104,7 @@ foreach ($array as $value) {
                     <th>商品名</th>
                     <th>数量</th>
                     <th>小計</th>
-                </tr>       
+                </tr>    
             <?php
             $totalprice = 0;
             foreach($array as $value){
@@ -118,20 +119,18 @@ foreach ($array as $value) {
             }
             ?> 
                 <tr>
-                    <td colspan="3">合計金額</td>
+                    <td colspan="2"></td>
+                    <th>合計金額</th>
                     <td><?= $totalprice ?>円</td>
                 </tr>
             </table>
-            <input type="button" onclick="location.href='cart.php'" value="戻る" />
-            <input type="submit" value="注文を確定する">
-        </div>
+            <input class="button" type="button" onclick="location.href='cart.php'" value="戻る" />
+            <input class="button" type="submit" value="注文を確定する">
     </form>
-
-
-
 </body>
+
 <footer>
- 
+    <p>© All rights reserved by webcampnavi.</p>
 </footer>
 
 </html>

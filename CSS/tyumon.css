@@ -1,3 +1,37 @@
-body{
-    text-align: center;
+body {
+    text-align: center;/*body全体を中央ぞろえする*/
+}
+
+h2 {
+    background-color: red;/*背景色を赤に変更*/
+}
+
+.address{
+    padding: 1rem 2rem;
+    border: 6px double #000;/*囲み二重線追加*/
+    
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;/*CardNumberの矢印削除*/
+}
+
+table {
+    margin-left: auto;/*tableを中央ぞろえする*/
+    margin-right: auto;/*tableを中央ぞろえする*/
+    color:black;/*フォントの色を黒にする*/
+    background-color: white;/*背景色を変更する*/
+}
+
+table th{
+    background-color: goldenrod;/*背景色を変更する*/
+    color: white;/*フォントの色を白にする*/
+}
+
+.button{
+    min-width: 200px;/*最小幅を設定*/
+    max-width: 600px;/*最大幅を設定*/
+    color: white;/*フォントの色を白にする*/
+    background-color: #eb6100;/*背景色を変更する*/
 }

@@ -1,10 +1,9 @@
 <?php
 session_start();
 
-echo $type = $_POST["type"];
-echo $tit = $_POST["taste_intensity"];
-echo $nti = $_POST["noodle_thickness"];
-/*
+$type = $_POST["type"];
+$tit = $_POST["taste_intensity"];
+$nti = $_POST["noodle_thickness"];
 try {
 	$server_name = "10.42.129.3";	// サーバ名
 	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
@@ -38,7 +37,7 @@ try {
 } catch (PDOException $e) {
 	print "SQL 実行エラー!: " . $e->getMessage();
 	exit();
-} */
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,15 +67,25 @@ try {
         <th>値段</th>
         <th>アレルギー</th>
     </tr>
+    <div class="zyoken">
     <?php
+echo <<< EOM
+あなたの条件検索結果</br>
+$type</br>
+$tit</br>
+$nti
+</div>
+EOM;
 foreach($array as $value){
-    echo "<tr>\n";
-    echo "<td>{$value["g_name"]}</td>\n";
-    echo "<td>{$value["g_image"]}</td>\n";
-    echo "<td>{$value["g_detail"]}</td>\n";
-    echo "<td>{$value["price"]}</td>\n";
-    echo "<td>{$value["allergen"]}</td>\n";
-    echo "</tr>\n";
+    echo <<< EOM
+    <tr>
+    <td>{$value["g_name"]}</td>
+    <td><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></td>
+    <td>{$value["g_detail"]}</td>
+    <td>{$value["price"]}</td>
+    <td>{$value["allergen"]}</td>
+    </tr>
+    EOM;
 }
 ?>
     </table>

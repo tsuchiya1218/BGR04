@@ -64,21 +64,23 @@ $array = $stmt->fetchAll();
 			<th>数量</th>
 			<th>小計</th>
 		</tr>
-		<form method="POST" action="kousin.php">
+		<form method="POST" action="Cartupdate.php">
 			<?php
 			$totalprice = 0;
-			$ArrayG_code=array();
+			$ArrayG_code = array();
 			foreach ($array as $row) {
-				array_push($ArrayG_code,$row["g_code"]);
+				array_push($ArrayG_code, $row["g_code"]);
+				$max = count($ArrayG_code); //カートの商品の数
+
 				echo "<tr>";
 				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
 				echo "<td>{$row['g_name']}</td>";
 				echo "<td>{$row['price']}円</td>";
 				echo "<td>";
-				echo <<< EOM
 				
-				<select name="qty">
-				EOM;
+				
+				 echo "<select name='qty$max'>";
+				
 				for ($i = 1; $i <= $row["stock"]; $i++) {
 					if ($i != $row["qty"]) {
 						echo "            <option align = right value=$i>{$i}個</option>\n";
@@ -86,19 +88,22 @@ $array = $stmt->fetchAll();
 						echo "            <option align = right value=$i selected>{$i}個</option>\n";
 					}
 				}
-
-				echo "</td>";
+				echo <<< EOM
+				</select>
+				
+				</td>
+				EOM;
 				$syoukei = $row["qty"] * $row["price"];
 				echo "<td>" . $syoukei . "円</td>";
 				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
 				echo "</tr>";
 				$totalprice = $totalprice + $syoukei;
-
 			}
-			$max=count($ArrayG_code);//カートの商品の数
-			for($i=0;$i<$max;$i++){
-				$_session["CartGoodsQty"]=$max;//UPDATE文で商品数(for)に使う
-				$_session["ArrayG_code"][$i]=$ArrayG_code[$i];//商品数をもとにfor文でg_code取得させUPDATEさせる
+			$_SESSION['CartGoodsQty']= $max;	
+			echo $_SESSION['CartGoodsQty']."個";		//UPDATE文で商品数(for)に使う
+			
+			for ($i = 0; $i < $max; $i++) {
+				echo $_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
 			}
 
 

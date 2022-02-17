@@ -16,6 +16,7 @@ header {
 body{
     padding-top     : 90px; /* ヘッダーの後ろに要素が隠れないようにするため */
     color           : white;/*フォントの色を白にする*/
+    text-align: center;
 }
 
 h1 {

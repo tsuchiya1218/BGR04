@@ -100,13 +100,12 @@ foreach ($array as $value) {
             </td>
         </tr>
         <tr>
-            <td class="CardNumber"><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" /></td>
-            <!-- ↑　の矢印をcssで消す-->
+            <td class="CardNumber"><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;"></td>
         </tr>
     </table>
 
-
     <h2>※以下の御注文でお間違いがないか必ず御確認ください。</h2>
+    
     <table border="2">
         <tr>
             <th>商品画像</th>

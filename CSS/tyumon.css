@@ -1,5 +1,5 @@
 body {
-    text-align: center;/*body全体を中央ぞろえする*/
+    text-align      : center;/*body全体を中央ぞろえする*/
 }
 
 h2 {
@@ -7,8 +7,8 @@ h2 {
 }
 
 .address{
-    padding: 1rem 2rem;
-    border: 6px double #000;/*囲み二重線追加*/
+    padding         : 1rem 2rem;
+    border          : 6px double #000;/*囲み二重線追加*/
     
 }
 
@@ -18,20 +18,22 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 table {
-    margin-left: auto;/*tableを中央ぞろえする*/
-    margin-right: auto;/*tableを中央ぞろえする*/
-    color:black;/*フォントの色を黒にする*/
+    margin-left     : auto;/*tableを中央ぞろえする*/
+    margin-right    : auto;/*tableを中央ぞろえする*/
+    color           :black;/*フォントの色を黒にする*/
     background-color: white;/*背景色を変更する*/
 }
 
 table th{
     background-color: goldenrod;/*背景色を変更する*/
-    color: white;/*フォントの色を白にする*/
+    color           : white;/*フォントの色を白にする*/
 }
 
 .button{
-    min-width: 200px;/*最小幅を設定*/
-    max-width: 600px;/*最大幅を設定*/
-    color: white;/*フォントの色を白にする*/
+    min-width       : 200px;/*最小幅を設定*/
+    max-width       : 600px;/*最大幅を設定*/
+    color           : white;/*フォントの色を白にする*/
     background-color: #eb6100;/*背景色を変更する*/
+    width: 300px;
+    padding: 10px;
 }

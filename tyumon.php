@@ -58,6 +58,7 @@ foreach ($array as $value) {
     <h1>
         <a href="/">TOP</a>
     </h1>
+    
     <nav class="pc-nav">
         <ul>
             <li><a href="#">ホーム</a></li>
@@ -68,7 +69,14 @@ foreach ($array as $value) {
         </ul>
     </nav>
 </header>
+    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+    <?php
+    echo "<p style=\"text-align:right\">";
+    echo "{$_SESSION["name"]}でログイン中</br>";
 
+    echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
+    echo "</p>";
+    ?>
     <table border="2">
         <tr>
             <th>配送先住所</th>

@@ -51,10 +51,27 @@ $card = $_POST["card"];
 
 <head>
     <meta charset="UTF-8">
+    <link href="css/common.css" rel="stylesheet" type ="text/css">
+    <link href="css/tyumon.css" rel="stylesheet" type ="text/css">
     <title>注文確認画面</title>
 </head>
 
 <body>
+    <header>
+        <h1>
+            <a href="/">TOP</a>
+        </h1>
+        <nav class="pc-nav">
+            <ul>
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">日本地図で検索</a></li>
+                <li><a href="#">好みで検索</a></li>
+                <li><a href="#">カート内一覧</a></li>
+                <li><a href="#">注文履歴</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <h2>注文確認画面</h2>
@@ -66,14 +83,23 @@ $card = $_POST["card"];
     echo "</p>";
     ?>
 
-    <p>住所：<?=$c_address1.$c_address2?></p>
-    <p>カード会社：<?=$card?></p>
     <table border="2">
         <tr>
-            <td>商品画像</td>
-            <td>商品名</td>
-            <td>数量</td>
-            <td>小計</td>
+            <th>お届け先住所</th>
+            <td><?=$c_address1.$c_address2?></td>
+        </tr>
+        <tr>
+            <th>支払方法</th>
+            <td><?=$card?></td>
+        </tr>
+    </table><br>
+
+    <table border="2">
+        <tr>
+            <th>商品画像</th>
+            <th>商品名</th>
+            <th>数量</th>
+            <th>小計</th>
         </tr>
         <?php
         $totalprice = 0;
@@ -89,17 +115,20 @@ $card = $_POST["card"];
         }
         ?>
             <tr>
-                <td></td>
-                <td></td>
-                <td>合計金額</td>
+                <td colspan="2"></td>
+                <th>合計金額</th>
                 <td><?= $totalprice ?>円</td>
             </tr>
             </table>
 
-    <p>以上の内容で注文を確定してもよろしいですか？</p>
+    <h2>以上の内容で注文を確定してもよろしいですか？</h2>
 
-    <input type="button" onclick="location.href='tyumon.php'" value="戻る" />
-    <input type="button" onclick="location.href='tyumon_kt.php'" value="注文を確定する" />
+    <input class="button" type="button" onclick="location.href='tyumon.php'" value="戻る" />
+    <input class="button" type="button" onclick="location.href='tyumon_kt.php'" value="注文を確定する" />
 </body>
+
+<footer>
+    <p>© All rights reserved by webcampnavi.</p>
+</footer>
 
 </html>

@@ -116,7 +116,7 @@ $array = $stmt->fetchAll();
 				<td><?= $totalprice ?>円</td>
 			</tr>
 	</table><br>
-	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
+	<input type="button" onclick="location.href='histryback()'" value="戻る" />
 	<input type="button" value="注文画面へ">
 	<input type="button" onclick="location.href='Top.php'" value="ショッピングを続ける" />
 	<input type="submit" value="更新">

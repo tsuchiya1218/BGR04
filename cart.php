@@ -1,5 +1,6 @@
 <?php
 session_start();
+$session_id = $_SESSION['SESSION_ID'];//sesisonID取得
 
 
 //データベースに接続する
@@ -117,7 +118,7 @@ $array = $stmt->fetchAll();
 			</tr>
 	</table><br>
 	<input type="button" onclick="location.href='syousai.php'" value="戻る" />
-	<input type="button" value="注文画面へ" onclick="total();">
+	<input type="button" value="注文画面へ">
 	<input type="button" onclick="location.href='Top.php'" value="ショッピングを続ける" />
 	<input type="submit" value="更新">
 	</from>

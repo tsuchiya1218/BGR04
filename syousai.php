@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 $g_code = $_GET["id"];
 //データベースに接続する
 try {
@@ -42,6 +43,7 @@ foreach ($array as $cart) {
 	if($cart["g_code"]==$g_code){
 		$check=1;//商品がある場合
 	}else{
+		//echo $check; //商品数分「0」が表示される
 	}
 }
 
@@ -140,7 +142,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 			
 			if($check==0){
 				echo <<< eom
-				<input type="submit" value="追加" />
+				<input type="submit" value="追加">
 				eom;
 			}else{
 				echo <<< eom

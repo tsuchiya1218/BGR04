@@ -1,6 +1,11 @@
 strong{
-    color: white;
-    background-color: red;
+    color: red;
+}
+div{
+    font-size: x-large;
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double white;
 }
 
 .button{

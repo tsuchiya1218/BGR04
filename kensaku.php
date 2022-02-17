@@ -55,13 +55,13 @@ session_start();
             <label><input type="radio" name="noodle_thickness" value="太" required>太</label>
             <label><input type="radio" name="noodle_thickness" value="細">細</label>
             <strong>必須</strong>
-        </div>
+        </div></br>
 
         <input class="button" type="button" onclick="history.back()" value="戻る">
         <input class="button" type="submit" value="検索">
     </form>
     
-</body>
+</body></br>
 
 <footer>
     <p>© All rights reserved by webcampnavi.</p>

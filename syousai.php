@@ -24,25 +24,24 @@ try {
 	exit();
 }
 
-$sqlcart="SELECT * FROM cart";
-try{
-//SQL文を準備
-$stmt = $pdo->prepare($sqlcart);
-//SQL文を実行
-$stmt->execute();
-$array = $stmt->fetchALL(PDO::FETCH_ASSOC);
-
-}catch(PDOException $e){
-	print"SQL実行エラー！：".$e->getMessage();
+$sqlcart = "SELECT * FROM cart";
+try {
+	//SQL文を準備
+	$stmt = $pdo->prepare($sqlcart);
+	//SQL文を実行
+	$stmt->execute();
+	$array = $stmt->fetchALL(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+	print "SQL実行エラー！：" . $e->getMessage();
 	exit();
 }
 
 
-$check=0;
+$check = 0;
 foreach ($array as $cart) {
-	if($cart["g_code"]==$g_code){
-		$check=1;//商品がある場合
-	}else{
+	if ($cart["g_code"] == $g_code) {
+		$check = 1; //商品がある場合
+	} else {
 		//echo $check; //商品数分「0」が表示される
 	}
 }
@@ -127,30 +126,42 @@ foreach ($array as $value) { //データベースから商品情報取得
 			</p>
 		</div>
 
-		
+
 
 		<form method="post" action="CartInsert.php">
 
-			
-			<input type="hidden" name="g_code" value="<?=$g_code?>">
+
+			<input type="hidden" name="g_code" value="<?= $g_code ?>">
 			<input type="hidden" name="c_code" value="1">
 
-			<input type="number" name="qty" value="0" step="1" min="0" max="<?$stock?>">
-			
-			<input type="button" onclick="location.href='Top.php'" value="戻る" />
-			<?php
-			
-			if($check==0){
-				echo <<< eom
+			<select name='qty'>
+				<?php
+
+				for ($i = 1; $i <= $stock; $i++) {
+					if ($i != $stock) {
+						echo "            <option align = right value=$i selected>{$i}個</option>\n";
+					} else {
+						echo "            <option align = right value=$i>{$i}個</option>\n";
+					}
+				}
+				echo <<< EOM
+				</select>
+				</br>
+				<input type="button" onclick="location.href='Top.php'" value="戻る" />
+				
+				EOM;
+
+				if ($check == 0) {
+					echo <<< eom
 				<input type="submit" value="追加">
 				eom;
-			}else{
-				echo <<< eom
+				} else {
+					echo <<< eom
 				すでにカートにあります。			
 			eom;
-			}
-			
-			?>
+				}
+
+				?>
 		</form>
 
 

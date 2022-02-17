@@ -123,6 +123,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 			<div class="g_name">
 				<?= $g_name ?>
 			</div>
+			</br>
 
 			<img name=g_image src="./img/<?= $g_image ?>" alt="g_image">
 			</br>
@@ -153,11 +154,13 @@ foreach ($array as $value) { //データベースから商品情報取得
 				<?php
 
 				for ($i = 1; $i <= $stock; $i++) {
-					if ($i != $stock) {
-						echo "            <option align = right value=$i selected>{$i}個</option>\n";
+					//if ($i != $stock) {
+					echo "            <option align = right value=$i>{$i}個</option>\n";
+					/*
 					} else {
-						echo "            <option align = right value=$i>{$i}個</option>\n";
+						echo "            <option align = right value=$i selected>{$i}個</option>\n";
 					}
+					*/
 				}
 				echo <<< EOM
 				</select>
@@ -178,8 +181,11 @@ foreach ($array as $value) { //データベースから商品情報取得
 
 				?>
 		</form>
-</body></br>
+	</div>
+</body>
+</br>
 <footer>
 	<p>© All rights reserved by webcampnavi.</p>
 </footer>
+
 </html>

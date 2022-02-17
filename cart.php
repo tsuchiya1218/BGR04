@@ -1,6 +1,5 @@
 <?php
 session_start();
-$session_id = $_SESSION['SESSION_ID'];//sesisonID取得
 
 
 //データベースに接続する
@@ -101,10 +100,10 @@ $array = $stmt->fetchAll();
 				$totalprice = $totalprice + $syoukei;
 			}
 			$_SESSION['CartGoodsQty']= $max;	
-			echo $_SESSION['CartGoodsQty']."個";		//UPDATE文で商品数(for)に使う
+			$_SESSION['CartGoodsQty']."個";		//UPDATE文で商品数(for)に使う
 			
 			for ($i = 0; $i < $max; $i++) {
-				echo $_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
+				$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
 			}
 
 

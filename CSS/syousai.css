@@ -1,13 +1,31 @@
-.shopname{
-
+div{
+    font-size: x-large;
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double white;
+}
+.shopname{  
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double white;
 }
 .g_name{
-
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double white;
 }
-.g_detail{
-
+.g_detail{  
 }
 .price{
-
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double white;
 }
-.bottan
+.bottan{
+    min-width       : 200px;/*最小幅を設定*/
+    max-width       : 600px;/*最大幅を設定*/
+    color           : white;/*フォントの色を白にする*/
+    background-color: #eb6100;/*背景色を変更する*/
+    width           : 300px;
+    padding         : 10px;
+}

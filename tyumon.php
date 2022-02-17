@@ -100,7 +100,7 @@ foreach ($array as $value) {
             </td>
         </tr>
         <tr>
-            <td class="CardNumber"><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;"></td>
+            <td class="CardNumber"><input type="number"　name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;"></td>
         </tr>
     </table>
 

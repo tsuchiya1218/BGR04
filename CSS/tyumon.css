@@ -34,6 +34,6 @@ table th{
     max-width       : 600px;/*最大幅を設定*/
     color           : white;/*フォントの色を白にする*/
     background-color: #eb6100;/*背景色を変更する*/
-    width           : 300;
-    height          : 130;
+    width: 300px;
+    padding: 10px;
 }

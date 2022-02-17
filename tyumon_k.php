@@ -2,41 +2,41 @@
 session_start();
 
 try {
-	$server_name = "10.42.129.3";	// サーバ名
-	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
+    $server_name = "10.42.129.3";    // サーバ名
+    $db_name = "20jy0204";    // データベース名(自分の学籍番号を入力)
 
-	$user_name = "20jy0204";	// ユーザ名(自分の学籍番号を入力)
-	$user_pass = "20jy0204";	// パスワード(自分の学籍番号を入力)
+    $user_name = "20jy0204";    // ユーザ名(自分の学籍番号を入力)
+    $user_pass = "20jy0204";    // パスワード(自分の学籍番号を入力)
 
-	// データソース名設定
-	$dsn = "sqlsrv:server=$server_name;database=$db_name";
+    // データソース名設定
+    $dsn = "sqlsrv:server=$server_name;database=$db_name";
 
-	// PDOオブジェクトのインスタンス作成
-	$pdo = new PDO($dsn, $user_name, $user_pass);
+    // PDOオブジェクトのインスタンス作成
+    $pdo = new PDO($dsn, $user_name, $user_pass);
 
-	// PDOオブジェクトの属性の指定
-	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // PDOオブジェクトの属性の指定
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-	print "接続エラー!: " . $e->getMessage();
-	exit();
+    print "接続エラー!: " . $e->getMessage();
+    exit();
 }
 
 $sql = "SELECT * FROM cart inner join customers on customers.c_code = cart.c_code inner join goods on goods.g_code = cart.g_code";
 
 try {
-	// SQL 文を準備
-	$stmt = $pdo->prepare($sql);
-	// SQL 文を実行
-	$stmt->execute();
-	// 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
-	$array = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	$stmt = null;
-	$pdo = null;
+    // SQL 文を準備
+    $stmt = $pdo->prepare($sql);
+    // SQL 文を実行
+    $stmt->execute();
+    // 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
+    $array = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = null;
+    $pdo = null;
 } catch (PDOException $e) {
-	print "SQL 実行エラー!: " . $e->getMessage();
-	exit();
+    print "SQL 実行エラー!: " . $e->getMessage();
+    exit();
 }
-foreach ($array as $value) { 
+foreach ($array as $value) {
     //データベースから顧客情報取得
     $c_name = $value["c_name"];
     $c_address1 = $value["c_address1"];
@@ -51,8 +51,8 @@ $card = $_POST["card"];
 
 <head>
     <meta charset="UTF-8">
-    <link href="css/common.css" rel="stylesheet" type ="text/css">
-    <link href="css/tyumon.css" rel="stylesheet" type ="text/css">
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/tyumon.css" rel="stylesheet" type="text/css">
     <title>注文確認画面</title>
 </head>
 
@@ -64,10 +64,10 @@ $card = $_POST["card"];
         <nav class="pc-nav">
             <ul>
                 <li><a href="#">ホーム</a></li>
-                <li><a href="#">日本地図で検索</a></li>
-                <li><a href="#">好みで検索</a></li>
-                <li><a href="#">カート内一覧</a></li>
-                <li><a href="#">注文履歴</a></li>
+                <li><a href="Top.php">日本地図で検索</a></li>
+                <li><a href="kensaku.php">好みで検索</a></li>
+                <li><a href="cart.php">カート内一覧</a></li>
+                <li><a href="">注文履歴</a></li>
             </ul>
         </nav>
     </header>
@@ -86,13 +86,13 @@ $card = $_POST["card"];
     <table border="2">
         <tr>
             <th>お届け先住所</th>
-            <td><?=$c_address1.$c_address2?></td>
+            <td><?= $c_address1 . $c_address2 ?></td>
         </tr>
         <tr>
             <th>支払方法</th>
-            <td><?=$card?></td>
+            <td><?= $card ?></td>
         </tr>
-    </table><br>
+    </table>
 
     <table border="2">
         <tr>
@@ -103,23 +103,23 @@ $card = $_POST["card"];
         </tr>
         <?php
         $totalprice = 0;
-        foreach($array as $value){
+        foreach ($array as $value) {
             echo "<tr>";
-                echo "<td><img src='img/{$value["g_image"]}' alt='g_image' ></td>";
-                echo "<td>{$value["g_name"]}<br>{$value["shopname"]}</td>";
-                echo "<td>{$value["qty"]}個</td>";
-                $syoukei = $value["qty"] * $value["price"];
-                echo "<td>".$syoukei."円</td>";
-                $totalprice = $totalprice + $syoukei;
+            echo "<td><img src='img/{$value["g_image"]}' alt='g_image' ></td>";
+            echo "<td>{$value["g_name"]}<br>{$value["shopname"]}</td>";
+            echo "<td>{$value["qty"]}個</td>";
+            $syoukei = $value["qty"] * $value["price"];
+            echo "<td>" . $syoukei . "円</td>";
+            $totalprice = $totalprice + $syoukei;
             echo "</tr>";
         }
         ?>
-            <tr>
-                <td colspan="2"></td>
-                <th>合計金額</th>
-                <td><?= $totalprice ?>円</td>
-            </tr>
-            </table>
+        <tr>
+            <td colspan="2"></td>
+            <th>合計金額</th>
+            <td><?= $totalprice ?>円</td>
+        </tr>
+    </table>
 
     <h2>以上の内容で注文を確定してもよろしいですか？</h2>
 

@@ -86,10 +86,25 @@ foreach ($array as $value) { //データベースから商品情報取得
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="./css/XXX.css" rel="stylesheet" type="text/css">
+	<link href="./CSS/common.css" rel="stylesheet" type="text/css">
+	<link href="./CSS/syousai.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+	<header>
+		<h1>
+			<a href="/">TOP</a>
+		</h1>
+		<nav class="pc-nav">
+			<ul>
+				<li><a href="#">ホーム</a></li>
+				<li><a href="Top.php">日本地図で検索</a></li>
+				<li><a href="kensaku.php">好みで検索</a></li>
+				<li><a href="cart.php">カート内一覧</a></li>
+				<li><a href="">注文履歴</a></li>
+			</ul>
+		</nav>
+	</header>
 
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
 	<?php
@@ -163,8 +178,8 @@ foreach ($array as $value) { //データベースから商品情報取得
 
 				?>
 		</form>
-
-
-</body>
-
+</body></br>
+<footer>
+	<p>© All rights reserved by webcampnavi.</p>
+</footer>
 </html>

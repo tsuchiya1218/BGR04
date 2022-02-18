@@ -40,7 +40,9 @@ session_start();
     <h3>注文が確定しました</h3><br>
 
     <h3>ご確認用のメールを送信しました</h3>
-
+    <?
+    //cartの情報をorder_detailに移動するSQLを作る
+    ?>
     <input class="button" type="button" onclick="location.href='top.php'" value="トップページに戻る" />
 </body>
 

@@ -106,7 +106,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 		</nav>
 	</header>
 
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='Top.php'">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
 	<?php
 	echo "<p style=\"text-align:right\">";
 	echo "{$_SESSION["name"]}でログイン中</br>";

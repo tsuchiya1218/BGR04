@@ -39,7 +39,7 @@ session_start();
 
     <h3 style="text-align:right">ユーザー名</h3>
     <h2 style="text-align:center">あなたの好みを探します</h2>
-    <form method="POST" action="konomikensaku.php">
+    <form method="POST" action="list.php.php">
         <div>
             <label><input type="radio" name="type" value="醤油" required>醤油</label>
             <label><input type="radio" name="type" value="味噌">味噌</label>
@@ -57,7 +57,7 @@ session_start();
             <strong>必須</strong>
         </div></br>
 
-        <input class="button" type="button" onclick="history.back()" value="戻る">
+        <input class="button" type="button" onclick="location.href='Top.php'" value="戻る">
         <input class="button" type="submit" value="検索">
     </form>
     

@@ -148,7 +148,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 		<input type="hidden" name="g_code" value="<?= $g_code ?>">
 		<input type="hidden" name="c_code" value="1">
 
-		<select name='qty'>
+		<select class="select" name='qty'>
 			<?php
 
 			for ($i = 1; $i <= $stock; $i++) {

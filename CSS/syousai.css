@@ -25,8 +25,9 @@ div{
     width: 500px;
     border-bottom: 6px double white;
 }
-select{
+.select{
     text-align:center;
+    width: 200px;
     
 }
 

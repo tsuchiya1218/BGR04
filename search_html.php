@@ -20,13 +20,14 @@ session_start();
         <nav class="pc-nav">
             <ul>
                 <li><a href="#">ホーム</a></li>
-                <li><a href="Top.php">日本地図で検索</a></li>
-                <li><a href="search_html.php">好みで検索</a></li>
-                <li><a href="cart.php">カート内一覧</a></li>
+                <li><a href="top_html.php">日本地図で検索</a></li>
+                <li><a href="kensaku.php">好みで検索</a></li>
+                <li><a href="cart_html.php">カート内一覧</a></li>
                 <li><a href="">注文履歴</a></li>
             </ul>
         </nav>
     </header>
+    
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <?php
@@ -60,7 +61,7 @@ session_start();
         <input class="button" type="button" onclick="location.href='Top.php'" value="戻る">
         <input class="button" type="submit" value="検索">
     </form>
-    
+
 </body></br>
 
 <footer>

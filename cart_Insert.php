@@ -44,7 +44,7 @@ $pdo = null;*/
 	exit();
 }
  
-header('Location: cart.php');
+header('Location: cart_html.php');
 exit();
  
 ?>

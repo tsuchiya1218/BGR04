@@ -62,9 +62,9 @@ foreach ($array as $value) {
         <nav class="pc-nav">
             <ul>
                 <li><a href="#">ホーム</a></li>
-                <li><a href="Top.php">日本地図で検索</a></li>
+                <li><a href="top_html.php">日本地図で検索</a></li>
                 <li><a href="kensaku.php">好みで検索</a></li>
-                <li><a href="cart.php">カート内一覧</a></li>
+                <li><a href="cart_html.php">カート内一覧</a></li>
                 <li><a href="">注文履歴</a></li>
             </ul>
         </nav>
@@ -91,7 +91,7 @@ foreach ($array as $value) {
         <tr>
             <th rowspan="2">支払い方法選択</th>
             <td class="card">
-                <form action="tyumon_k.php" method="post">
+                <form action="order_Confirmation_html.php" method="post">
                     <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
                     <input type="radio" id="2" value="二井主友カード" name="card"><label for="2">二井主友カード</label>
                     <input type="radio" id="3" value="四菱銀行カード" name="card"><label for="3">四菱銀行カード</label>
@@ -100,12 +100,12 @@ foreach ($array as $value) {
             </td>
         </tr>
         <tr>
-            <td class="CardNumber"><input type="number"　name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;"></td>
+            <td class="CardNumber"><input type="number" 　name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;"></td>
         </tr>
     </table>
 
     <h2>※以下の御注文でお間違いがないか必ず御確認ください。</h2>
-    
+
     <table border="2">
         <tr>
             <th>商品画像</th>
@@ -132,7 +132,7 @@ foreach ($array as $value) {
             <td><?= $totalprice ?>円</td>
         </tr>
     </table>
-    <input class="button" type="button" onclick="location.href='cart.php'" value="戻る" />
+    <input class="button" type="button" onclick="location.href='cart_html.php'" value="戻る" />
     <input class="button" type="submit" value="注文を確定する">
     </form>
 </body>

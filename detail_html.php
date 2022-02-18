@@ -114,74 +114,71 @@ foreach ($array as $value) { //データベースから商品情報取得
 	echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
 	echo "</p>";
 	?>
-
-	<div class="center">
-		<div class="shopname">
+	<div>
+		<p class="shopname">
 			<?= $shopname ?>
+		</p>
+		</br>
 
-			</br>
-			<div class="g_name">
-				<?= $g_name ?>
-			</div>
-			</br>
+		<p class="g_name">
+			<?= $g_name ?>
+		</p>
+		</br>
 
-			<img name=g_image src="./img/<?= $g_image ?>" alt="g_image">
-			</br>
+		<img name=g_image src="./img/<?= $g_image ?>" alt="g_image">
+		</br>
 
-			<p class="g_detail">
-				<?= $g_detail ?>
-			</p>
+		<p class="g_detail">
+			<?= $g_detail ?>
+		</p>
+		</br>
 
-			<p class="price">
-				単価:<?= $price ?>
-			</p>
-
-
-			<p class="arerugen">
-				アレルゲン:<?= $allergen ?>
-			</p>
-		</div>
-
-
-
-		<form method="post" action="CartInsert.php">
+		<p class="price">
+			単価:<?= $price ?>
+		</p>
+		<p class="arerugen">
+			アレルゲン:<?= $allergen ?>
+		</p>
+	</div>
 
 
-			<input type="hidden" name="g_code" value="<?= $g_code ?>">
-			<input type="hidden" name="c_code" value="1">
+	<form method="post" action="CartInsert.php">
 
-			<select name='qty'>
-				<?php
 
-				for ($i = 1; $i <= $stock; $i++) {
-					//if ($i != $stock) {
-					echo "            <option align = right value=$i>{$i}個</option>\n";
-					/*
+		<input type="hidden" name="g_code" value="<?= $g_code ?>">
+		<input type="hidden" name="c_code" value="1">
+
+		<select name='qty'>
+			<?php
+
+			for ($i = 1; $i <= $stock; $i++) {
+				//if ($i != $stock) {
+				echo "            <option align = right value=$i>{$i}個</option>\n";
+				/*
 					} else {
 						echo "            <option align = right value=$i selected>{$i}個</option>\n";
 					}
 					*/
-				}
-				echo <<< EOM
+			}
+			echo <<< EOM
 				</select>
 				</br>
-				<input type="button" onclick="location.href='Top.php'" value="戻る" />
+				<input type="button" onclick="location.href='top_html.php'" value="戻る" />
 				
 				EOM;
 
-				if ($check == 0) {
-					echo <<< eom
+			if ($check == 0) {
+				echo <<< eom
 				<input type="submit" value="追加">
 				eom;
-				} else {
-					echo <<< eom
+			} else {
+				echo <<< eom
 				すでにカートにあります。			
 			eom;
-				}
+			}
 
-				?>
-		</form>
-	</div>
+			?>
+	</form>
 </body>
 </br>
 <footer>

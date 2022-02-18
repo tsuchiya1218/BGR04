@@ -1,10 +1,11 @@
 div{
     font-size: x-large;
     margin: auto;
-    width: 500px;
+    width: 600px;
     border-bottom: 6px double white;
 }
-.shopname{  
+.shopname{
+    font-size: xx-large;
     margin: auto;
     width: 500px;
     border-bottom: 6px double white;
@@ -14,14 +15,22 @@ div{
     width: 500px;
     border-bottom: 6px double white;
 }
-.g_detail{  
+.g_detail{
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double red;  
 }
 .price{
     margin: auto;
     width: 500px;
     border-bottom: 6px double white;
 }
-.bottan{
+select{
+    text-align:center;
+    
+}
+
+input{
     min-width       : 200px;/*最小幅を設定*/
     max-width       : 600px;/*最大幅を設定*/
     color           : white;/*フォントの色を白にする*/

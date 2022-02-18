@@ -1,34 +1,51 @@
 div{
     font-size: x-large;
-    margin: auto;
-    width: 600px;
-    border-bottom: 6px double white;
 }
+
 .shopname{
-    font-size: xx-large;
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'Hiragino Mincho ProN', 'HGS明朝E', 'ＭＳ Ｐ明朝', serif;
+    font-size: 50px;
     margin: auto;
     width: 500px;
     border-bottom: 6px double white;
+    background-image: -webkit-linear-gradient(315deg, #b8751e 0%, #ffce08 37%, #fefeb2 47%, #fafad6 50%, #fefeb2 53%, #e1ce08 63%, #b8751e 100%);
+    background-image: linear-gradient(135deg, #b8751e 0%, #ffce08 37%, #fefeb2 47%, #fafad6 50%, #fefeb2 53%, #e1ce08 63%, #b8751e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
+
 .g_name{
     margin: auto;
     width: 500px;
     border-bottom: 6px double white;
 }
+
 .g_detail{
     margin: auto;
     width: 500px;
     border-bottom: 6px double red;  
 }
+
 .price{
     margin: auto;
     width: 500px;
     border-bottom: 6px double white;
 }
+
+.arerugen{
+    margin: auto;
+    width: 500px;
+    border-bottom: 6px double white;
+}
+
 .select{
-    text-align:center;
-    width: 200px;
-    
+    font-size: medium;
+    padding: 10px 30px;
+    background-color:yellow;
+    margin:20px;
+    text-align: center;
+
 }
 
 input{

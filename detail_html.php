@@ -136,6 +136,8 @@ foreach ($array as $value) { //データベースから商品情報取得
 		<p class="price">
 			単価:<?= $price ?>
 		</p>
+		</br>
+		
 		<p class="arerugen">
 			アレルゲン:<?= $allergen ?>
 		</p>
@@ -149,11 +151,12 @@ foreach ($array as $value) { //データベースから商品情報取得
 		<input type="hidden" name="c_code" value="1">
 
 		<select class="select" name='qty'>
+			<option hidden>数量を選択して下さい</option>
 			<?php
-
 			for ($i = 1; $i <= $stock; $i++) {
 				//if ($i != $stock) {
-				echo "            <option align = right value=$i>{$i}個</option>\n";
+
+				echo "            <option value=$i>{$i}個</option>\n";
 				/*
 					} else {
 						echo "            <option align = right value=$i selected>{$i}個</option>\n";

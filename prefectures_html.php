@@ -53,7 +53,7 @@ while(($rec = $stmt->FETCH(PDO::FETCH_ASSOC))){
 //cssでflexに設定
 echo <<< unk
 <div class='msr_box02' >
-<a href="syousai.php?id=$rec[g_code]" target="_blank">
+<a href="detail_html.php?id=$rec[g_code]" target="_blank">
 <img src="./img/$rec[g_image]" width="230" height="150" alt="img"/>
 <h2 class="ttl">$rec[g_name]</h2>
 </a>

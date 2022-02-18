@@ -64,9 +64,9 @@ $card = $_POST["card"];
         <nav class="pc-nav">
             <ul>
                 <li><a href="#">ホーム</a></li>
-                <li><a href="Top.php">日本地図で検索</a></li>
+                <li><a href="top_html.php">日本地図で検索</a></li>
                 <li><a href="kensaku.php">好みで検索</a></li>
-                <li><a href="cart.php">カート内一覧</a></li>
+                <li><a href="cart_html.php">カート内一覧</a></li>
                 <li><a href="">注文履歴</a></li>
             </ul>
         </nav>
@@ -123,8 +123,8 @@ $card = $_POST["card"];
 
     <h2>以上の内容で注文を確定してもよろしいですか？</h2>
 
-    <input class="button" type="button" onclick="location.href='tyumon.php'" value="戻る" />
-    <input class="button" type="button" onclick="location.href='tyumon_kt.php'" value="注文を確定する" />
+    <input class="button" type="button" onclick="location.href='order_html.php'" value="戻る" />
+    <input class="button" type="button" onclick="location.href='order_completion_html.php'" value="注文を確定する" />
 </body>
 
 <footer>

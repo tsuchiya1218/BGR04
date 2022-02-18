@@ -142,7 +142,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 	</div>
 
 
-	<form method="post" action="CartInsert.php">
+	<form method="post" action="cart_Insert.php">
 
 
 		<input type="hidden" name="g_code" value="<?= $g_code ?>">

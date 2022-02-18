@@ -36,7 +36,7 @@ for ($i = 0; $i < $CartGoodsQty; $i++) { //cartを更新
 
 	$qty[$j] = $_POST["qty" . $j]; //商品注文個数
 
-	$cart_code = $c_code . $ArrayG_code[$i] . $qty;
+	$cart_code = $c_code.$ArrayG_code[$i].$qty[$j];
 
 	$sql = "UPDATE cart SET qty = ?, cart_code = ? WHERE g_code=?";
 	$stmt = $pdo->prepare($sql);
@@ -46,4 +46,9 @@ for ($i = 0; $i < $CartGoodsQty; $i++) { //cartを更新
 	// /$array = $stmt->fetchAll();
 
 }
-echo "更新完了";
+
+header('Location: cart_html.php');
+exit();
+
+
+?>

@@ -24,7 +24,7 @@ try {
     exit();
 }
 
-$sql = "SELECT * FROM goods WHERE type=? || taste_intensity=? || noodle_thickness=?";
+$sql = "SELECT * FROM goods WHERE type=? OR taste_intensity=? OR noodle_thickness=?";
 try {
     // SQL 文を準備
     $stmt = $pdo->prepare($sql);
@@ -64,7 +64,7 @@ try {
             </ul>
         </nav>
     </header>
-    
+
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <?php
@@ -95,16 +95,15 @@ EOM;
             foreach ($array as $value) {
                 //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
                 echo <<< EOM
-    <a href="syousai.php?g_code = $value[g_code]">
-    <tr>
-    <td>{$value["g_name"]}</td>
-    <td><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></td>
-    <td>{$value["g_detail"]}</td>
-    <td>{$value["price"]}</td>
-    <td>{$value["allergen"]}</td>
-    </tr>
-    </a>
-    EOM;
+                    <tr>
+                    <td><a href="detail_html.php?id=$value[g_code]">{$value["g_name"]}</a></td>
+                    <td><a href="detail_html.php?id=$value[g_code]"><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></a></td>
+                    <td>{$value["g_detail"]}</td>
+                    <td>{$value["price"]}</td>
+                    <td>{$value["allergen"]}</td>
+                    </tr>
+                    
+                    EOM;
             }
             ?>
     </table>

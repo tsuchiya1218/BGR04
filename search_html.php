@@ -40,7 +40,7 @@ session_start();
 
     <h3 style="text-align:right">ユーザー名</h3>
     <h2 style="text-align:center">あなたの好みを探します</h2>
-    <form method="POST" action="list.php.php">
+    <form method="POST" action="list_html.php">
         <div>
             <label><input type="radio" name="type" value="醤油" required>醤油</label>
             <label><input type="radio" name="type" value="味噌">味噌</label>

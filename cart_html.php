@@ -134,7 +134,7 @@ $array = $stmt->fetchAll();
 			</tr>
 	</table><br>
 	<h3>個数を変更した際は必ず更新ボタンを押してください</h3>
-	<input class="button" type="button" onclick="location.href='histryback()'" value="戻る" />
+	<input class="button" type="button" onclick="location.href='top_html.php'" value="TOPに戻る">
 	<input class="button" type="button" onclick="location.href='order_html.php'" value="注文画面へ">
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />
 	<input class="button" type="submit" value="更新">

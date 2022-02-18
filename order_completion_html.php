@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <link href="css/common.css" rel="stylesheet" type="text/css">
     <link href="css/tyumon.css" rel="stylesheet" type="text/css"> 
-    <title>注文確認画面</title>
+    <title>注文完了画面</title>
 </head>
 
 <body>

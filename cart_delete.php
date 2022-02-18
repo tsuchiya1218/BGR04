@@ -37,5 +37,5 @@ try{
 }
 
 
-header('location:cart.php')
+header('location:cart_html.php')
 ?>

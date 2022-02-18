@@ -21,7 +21,7 @@ session_start();
             <ul>
                 <li><a href="#">ホーム</a></li>
                 <li><a href="Top.php">日本地図で検索</a></li>
-                <li><a href="kensaku.php">好みで検索</a></li>
+                <li><a href="search_html.php">好みで検索</a></li>
                 <li><a href="cart.php">カート内一覧</a></li>
                 <li><a href="">注文履歴</a></li>
             </ul>

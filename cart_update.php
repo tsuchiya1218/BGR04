@@ -1,10 +1,9 @@
 <?php
 session_start();
-$session_id = $_SESSION['SESSION_ID'];//sesisonID取得
 
 //var_dump($_SESSION);    //SESSIONの中身を確認できる
 
-$CartGoodsQty=$_SESSION['CartGoodsQty'];//商品数
+$CartGoodsQty = $_SESSION['CartGoodsQty']; //商品数
 
 //データベースに接続する
 try {
@@ -26,20 +25,25 @@ try {
 	exit();
 }
 
-for ($i = 0; $i < $CartGoodsQty; $i++) {//cartを更新
-	$j=$i+1;
-    
-	$ArrayG_code[$i]=$_SESSION['ArrayG_code'][$i]; //商品ID
 
-	$qty[$j]=$_POST["qty".$j];//商品注文個数
 
-	$sql = "UPDATE cart SET qty = ? WHERE g_code=?";
+for ($i = 0; $i < $CartGoodsQty; $i++) { //cartを更新
+	$j = $i + 1;
+
+	$ArrayG_code[$i] = $_SESSION['ArrayG_code'][$i]; //商品ID
+
+	$c_code = $_SESSION['c_code']; //c_code取得
+
+	$qty[$j] = $_POST["qty" . $j]; //商品注文個数
+
+	$cart_code = $c_code . $ArrayG_code[$i] . $qty;
+
+	$sql = "UPDATE cart SET qty = ?, cart_code = ? WHERE g_code=?";
 	$stmt = $pdo->prepare($sql);
 
-	$stmt->execute(array($qty[$j],$ArrayG_code[$i]));
+	$stmt->execute(array($qty[$j], $cart_code, $ArrayG_code[$i]));
 
 	// /$array = $stmt->fetchAll();
 
 }
 echo "更新完了";
-?>

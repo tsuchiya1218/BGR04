@@ -39,6 +39,8 @@ $array = $stmt->fetchAll();
 
 <head>
 	<meta charset="UTF-8">
+	<link href="css/common.css" rel="stylesheet" type="text/css">
+	<link href="css/cart.css" rel="stylesheet" type="text/css">
 	<title>カート内を確認</title>
 </head>
 
@@ -58,7 +60,7 @@ $array = $stmt->fetchAll();
 			</ul>
 		</nav>
 	</header>
-	
+
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
 
 	<?php
@@ -69,16 +71,16 @@ $array = $stmt->fetchAll();
 	echo "</p>";
 	?>
 
-	<h3 style="text-align:right">ユーザー名</h3>
-	<h2 style="text-align:center">カート内一覧</h2>
+	<h2>カート内一覧</h2>
 
 	<table border="2">
 		<tr>
-			<th></th>
+			<th>商品画像</th>
 			<th>商品名</th>
 			<th>金額</th>
 			<th>数量</th>
 			<th>小計</th>
+			<th></th>
 		</tr>
 		<form method="POST" action="cart_update.php">
 			<?php
@@ -89,7 +91,7 @@ $array = $stmt->fetchAll();
 				$max = count($ArrayG_code); //カートの商品の数
 
 				echo "<tr>";
-				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" width=\"193\" height=\"130\"></td>";
+				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\"></td>";
 				echo "<td>{$row['g_name']}</td>";
 				echo "<td>{$row['price']}円</td>";
 				echo "<td>";
@@ -125,19 +127,23 @@ $array = $stmt->fetchAll();
 
 			?>
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>合計金額</td>
+				<td colspan="3"></td>
+				<th>合計金額</th>
 				<td><?= $totalprice ?>円</td>
+				<td></td>
 			</tr>
 	</table><br>
-	<input type="button" onclick="location.href='histryback()'" value="戻る" />
-	<input type="button" onclick="location.href='order_html.php'" value="注文画面へ">
-	<input type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />
-	<input type="submit" value="更新">
+	<h3>個数を変更した際は必ず更新ボタンを押してください</h3>
+	<input class="button" type="button" onclick="location.href='histryback()'" value="戻る" />
+	<input class="button" type="button" onclick="location.href='order_html.php'" value="注文画面へ">
+	<input class="button" type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />
+	<input class="button" type="submit" value="更新">
 	</from>
 	<script src="./js/cart.js"></script>
 </body>
+
+<footer>
+	<p>© All rights reserved by webcampnavi.</p>
+</footer>
 
 </html>

@@ -98,9 +98,9 @@ foreach ($array as $value) { //データベースから商品情報取得
 		<nav class="pc-nav">
 			<ul>
 				<li><a href="#">ホーム</a></li>
-				<li><a href="Top.php">日本地図で検索</a></li>
+				<li><a href="top_html.php">日本地図で検索</a></li>
 				<li><a href="kensaku.php">好みで検索</a></li>
-				<li><a href="cart.php">カート内一覧</a></li>
+				<li><a href="cart_html.php">カート内一覧</a></li>
 				<li><a href="">注文履歴</a></li>
 			</ul>
 		</nav>
@@ -137,7 +137,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 			単価:<?= $price ?>
 		</p>
 		</br>
-		
+
 		<p class="arerugen">
 			アレルゲン:<?= $allergen ?>
 		</p>
@@ -148,8 +148,9 @@ foreach ($array as $value) { //データベースから商品情報取得
 
 
 		<input type="hidden" name="g_code" value="<?= $g_code ?>">
-		<input type="hidden" name="c_code" value="1">
-
+		<?php
+		$_SESSION['c_code']="1";
+		?>
 		<select class="select" name='qty'>
 			<option hidden>数量を選択して下さい</option>
 			<?php
@@ -184,6 +185,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 	</form>
 </body>
 </br>
+
 <footer>
 	<p>© All rights reserved by webcampnavi.</p>
 </footer>

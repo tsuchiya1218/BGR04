@@ -92,7 +92,7 @@ foreach ($array as $value) {
             <th rowspan="2">支払い方法選択</th>
             <td class="card">
                 <form action="order_Confirmation_html.php" method="post">
-                    <input type="radio" id="1" value="JCBBカード" name="card"><label for="1">JCBBカード</label>
+                    <input type="radio" id="1" value="JCBBカード" name="card" required><label for="1">JCBBカード</label>
                     <input type="radio" id="2" value="二井主友カード" name="card"><label for="2">二井主友カード</label>
                     <input type="radio" id="3" value="四菱銀行カード" name="card"><label for="3">四菱銀行カード</label>
                     <input type="radio" id="4" value="Misterカード" name="card"><label for="4">Misterカード</label>

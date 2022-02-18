@@ -64,11 +64,6 @@ foreach ($array as $row) {
         </nav>
     </header>
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
-    <div class=cartimage>
-    <img name=cart src="./img/cart.png" alt="cart" width="100" height="45">
-    <h3>カート(<number><?=$CartGoodsQty?></number>)</h3>
-    </div>
-
     <p>エリアからご当地ラーメンを検索する</p>
 
     <?php

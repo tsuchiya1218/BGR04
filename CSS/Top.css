@@ -2,9 +2,6 @@
 .map{
     text-align      : center;
 }
-number{
-    color: red;
-}
 
 .button{
     min-width       : 200px;/*最小幅を設定*/

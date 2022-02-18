@@ -24,7 +24,7 @@ try {
     exit();
 }
 
-$sql = "SELECT * FROM goods WHERE type=? and taste_intensity=? and noodle_thickness=?";
+$sql = "SELECT * FROM goods WHERE type=? || taste_intensity=? || noodle_thickness=?";
 try {
     // SQL 文を準備
     $stmt = $pdo->prepare($sql);

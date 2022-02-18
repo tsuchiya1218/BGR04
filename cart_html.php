@@ -117,8 +117,8 @@ $array = $stmt->fetchAll();
 				echo "</tr>";
 				$totalprice = $totalprice + $syoukei;
 			}
-			$_SESSION['CartGoodsQty'] = $max;
-			$_SESSION['CartGoodsQty'] . "個";		//UPDATE文で商品数(for)に使う
+			$_SESSION['CartGoodsQty'] = $max;			//UPDATE文で商品数(for)に使う
+
 
 			for ($i = 0; $i < $max; $i++) {
 				$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる

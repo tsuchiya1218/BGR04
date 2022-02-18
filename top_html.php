@@ -1,8 +1,42 @@
 <?php
 session_start();
 $_SESSION["name"] = "熊澤直人";
-?>
 
+//データベースに接続する
+try {
+	$server_name = "10.42.129.3";	// サーバ名
+	$db_name = "20jy0204";	// データベース名(自分の学籍番号を入力)
+
+	$user_name = "20jy0204";	// ユーザ名(自分の学籍番号を入力)
+	$user_pass = "20jy0204";	// パスワード(自分の学籍番号を入力)
+	// データソース名設定
+	$dsn = "sqlsrv:server=$server_name;database=$db_name";
+
+	// PDOオブジェクトのインスタンス作成
+	$pdo = new PDO($dsn, $user_name, $user_pass);
+
+	// PDOオブジェクトの属性の指定
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+	print "接続エラー!: " . $e->getMessage();
+	exit();
+}
+
+
+$sql = "SELECT * from cart";
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute(array());
+
+$array = $stmt->fetchAll();
+
+$CartGoodsQty=0;
+
+foreach ($array as $row) {
+    $CartGoodsQty=$CartGoodsQty+1;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,8 +64,11 @@ $_SESSION["name"] = "熊澤直人";
         </nav>
     </header>
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+    <div class=cartimage>
+    <img name=cart src="./img/cart.png" alt="cart" width="100" height="45">
+    <h3>カート(<number><?=$CartGoodsQty?></number>)</h3>
+    </div>
 
-    <h3 style="text-align:right">ユーザー名</h3>
     <p>エリアからご当地ラーメンを検索する</p>
 
     <?php

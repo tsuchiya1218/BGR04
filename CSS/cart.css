@@ -1,0 +1,23 @@
+table {
+    margin-left     : auto;/*tableを中央ぞろえする*/
+    margin-right    : auto;/*tableを中央ぞろえする*/
+    color           :black;/*フォントの色を黒にする*/
+    background-color: white;/*背景色を変更する*/
+}
+
+table th{
+    background-color: goldenrod;/*背景色を変更する*/
+    color           : white;/*フォントの色を白にする*/
+}
+h3 {
+    background-color: red;/*背景色を赤に変更*/
+}
+
+.button{
+    min-width       : 200px;/*最小幅を設定*/
+    max-width       : 600px;/*最大幅を設定*/
+    color           : white;/*フォントの色を白にする*/
+    background-color: #eb6100;/*背景色を変更する*/
+    width: 300px;
+    padding: 10px;
+}

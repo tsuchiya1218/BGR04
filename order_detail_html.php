@@ -32,6 +32,15 @@ $stmt->execute(array());
 
 $array = $stmt->fetchAll();
 
+$check = 0;
+foreach ($array as $cart) {
+	if ($cart["g_code"] > 0) {
+		$check = 1; //商品がある場合
+	} else {
+		//echo $check; //商品数分「0」が表示される
+	}
+}
+
 
 ?>
 
@@ -73,15 +82,19 @@ $array = $stmt->fetchAll();
 	?>
 
 	<h2>注文履歴一覧</h2>
-
+    <?php
+			if ($check == 1) {
+    ?>
 	<table border="2">
 		<tr>
 			<th>商品画像</th>
 			<th>商品名</th>
+            <th>店名</th>
 			<th>金額</th>
 			<th>数量</th>
 			<th>小計</th>
 			<th>注文日付</th>
+            <th>配達状況</th>
 		</tr>
 			<?php
 			$totalprice = 0;
@@ -89,10 +102,16 @@ $array = $stmt->fetchAll();
 			foreach ($array as $row) {
 				array_push($ArrayG_code, $row["g_code"]);
 				$max = count($ArrayG_code); //カートの商品の数
+                if($row["delivery"]==0){
+                    $tatu="配達済み";
+                }else{
+                    $tatu="配達中";
+                }
 
 				echo "<tr>";
 				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\"></td>";
 				echo "<td>{$row['g_name']}</td>";
+                echo "<td>{$row['shopname']}</td>";
 				echo "<td>{$row['price']}円</td>";
 				echo "<td>";
 				echo $row["qty"];
@@ -102,19 +121,20 @@ $array = $stmt->fetchAll();
 				$syoukei = $row["qty"] * $row["price"];
 				echo "<td>" . $syoukei . "円</td>";
                 echo "<td>" . $row["date"] . "</td>";
+                echo "<td>" . $tatu . "</td>";
 				echo "</tr>";
-				$totalprice = $totalprice + $syoukei;
-			}
-			$_SESSION['CartGoodsQty'] = $max;			//UPDATE文で商品数(for)に使う
+			} 
 
-
-			for ($i = 0; $i < $max; $i++) {
-				$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
-			}
-
-
-			?>
+            } else {
+                echo <<< eom
+                    <tr>
+                    <td colspan="5" class="cart">注文履歴がありません</td>
+                    </tr>
+                eom;
+            }
+            ?>
 	</table><br>
+
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="TOPに戻る">
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />
 	<script src="./js/cart.js"></script>

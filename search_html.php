@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <link href="css/common.css" rel="stylesheet" type="text/css">
-    <link href="css/kensaku.css" rel="stylesheet" type="text/css">
+    <link href="css/search.css" rel="stylesheet" type="text/css">
     <title>好み検索</title>
 </head>
 

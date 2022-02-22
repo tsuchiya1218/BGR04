@@ -102,12 +102,6 @@ foreach ($array as $cart) {
 			foreach ($array as $row) {
 				array_push($ArrayG_code, $row["g_code"]);
 				$max = count($ArrayG_code); //カートの商品の数
-                if($row["delivery"]==0){
-                    $tatu="配達済み";
-                }else{
-                    $tatu="配達中";
-                }
-
 				echo "<tr>";
 				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\"></td>";
 				echo "<td>{$row['g_name']}</td>";
@@ -121,7 +115,7 @@ foreach ($array as $cart) {
 				$syoukei = $row["qty"] * $row["price"];
 				echo "<td>" . $syoukei . "円</td>";
                 echo "<td>" . $row["date"] . "</td>";
-                echo "<td>" . $tatu . "</td>";
+                echo "<td>" . $row["delivery"] . "</td>";
 				echo "</tr>";
                 $totalprice = $totalprice + $syoukei;
                 echo <<< eom

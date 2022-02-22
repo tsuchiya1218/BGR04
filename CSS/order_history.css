@@ -1,3 +1,8 @@
+.img {
+    width:250px;
+    height:200px;
+}
+
 table {
     margin-left     : auto;/*tableを中央ぞろえする*/
     margin-right    : auto;/*tableを中央ぞろえする*/

@@ -13,9 +13,9 @@ h3 {
     background-color: red;/*背景色を赤に変更*/
 }
 .cart{
-    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'Hiragino Mincho ProN', 'HGS明朝E', 'ＭＳ Ｐ明朝', serif;
-    padding: 1rem 2rem;
-    color: red;/*背景色を変更する*/ 
+    font-family     : 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', 'Hiragino Mincho ProN', 'HGS明朝E', 'ＭＳ Ｐ明朝', serif;
+    padding         : 1rem 2rem;
+    color           : red;/*背景色を変更する*/ 
 }
 .button{
     min-width       : 200px;/*最小幅を設定*/

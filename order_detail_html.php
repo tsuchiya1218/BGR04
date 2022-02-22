@@ -50,7 +50,7 @@ foreach ($array as $cart) {
 <head>
 	<meta charset="UTF-8">
 	<link href="css/common.css" rel="stylesheet" type="text/css">
-	<link href="css/cart.css" rel="stylesheet" type="text/css">
+	<link href="css/order_history.css" rel="stylesheet" type="text/css">
 	<title>注文履歴</title>
 </head>
 
@@ -103,7 +103,7 @@ foreach ($array as $cart) {
 				array_push($ArrayG_code, $row["g_code"]);
 				$max = count($ArrayG_code); //カートの商品の数
 				echo "<tr>";
-				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\"></td>";
+				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\" class='img'></td>";
 				echo "<td>{$row['g_name']}</td>";
                 echo "<td>{$row['shopname']}</td>";
 				echo "<td>{$row['price']}円</td>";

@@ -58,7 +58,7 @@ session_start();
             <strong>必須</strong>
         </div></br>
 
-        <input class="button" type="button" onclick="location.href='Top.php'" value="戻る">
+        <input class="button" type="button" onclick="location.href='Top_html.php'" value="戻る">
         <input class="button" type="submit" value="検索">
     </form>
 

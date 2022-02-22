@@ -31,6 +31,14 @@ $stmt->execute(array());
 
 $array = $stmt->fetchAll();
 
+$check = 0;
+foreach ($array as $cart) {
+	if ($cart["g_code"] > 0) {
+		$check = 1; //商品がある場合
+	} else {
+		//echo $check; //商品数分「0」が表示される
+	}
+}
 
 ?>
 
@@ -117,12 +125,15 @@ $array = $stmt->fetchAll();
 				echo "</tr>";
 				$totalprice = $totalprice + $syoukei;
 			}
-			$_SESSION['CartGoodsQty'] = $max;			//UPDATE文で商品数(for)に使う
+			if (isset($max)) {
+				$_SESSION['CartGoodsQty'] = $max;			//UPDATE文で商品数(for)に使う
 
-
-			for ($i = 0; $i < $max; $i++) {
-				$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
+				for ($i = 0; $i < $max; $i++) {
+					$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
+				}
 			}
+
+
 
 
 			?>
@@ -135,7 +146,19 @@ $array = $stmt->fetchAll();
 	</table><br>
 	<h3>個数を変更した際は必ず更新ボタンを押してください</h3>
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="TOPに戻る">
-	<input class="button" type="button" onclick="location.href='order_html.php'" value="注文画面へ">
+
+	<?php
+	//商品がある場合【注文画面へが表示される】
+	if ($check == 1) {
+		echo <<< eom
+		<input class="button" type="button" onclick="location.href='order_html.php'" value="注文画面へ">
+		eom;
+	} else {
+		echo <<< eom
+		カートに商品がありません
+	eom;
+	}
+	?>
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />
 	<input class="button" type="submit" value="更新">
 	</from>

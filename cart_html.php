@@ -155,7 +155,7 @@ foreach ($array as $cart) {
 		eom;
 	} else {
 		echo <<< eom
-		カートに商品がありません
+		<a class="cart">カートに商品がありません</a>
 	eom;
 	}
 	?>

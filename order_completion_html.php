@@ -51,7 +51,7 @@ foreach ($stmt as $value) {
     }
     $o_code = $array[0]['maxid'] + 1;
 
-    
+
     $ordersql = "INSERT INTO orders VALUES (?,?,?,?)";
 
     $date = date("Y/m/d");
@@ -68,6 +68,20 @@ foreach ($stmt as $value) {
         exit();
     }
 }
+
+$deletesql = "DELETE FROM cart";
+
+    try {
+        // SQL 文を準備
+        $stmt = $pdo->prepare($deletesql);
+        // SQL 文を実行
+        $stmt->execute();
+        // 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
+
+    } catch (PDOException $e) {
+        print "deletesql 実行エラー!: " . $e->getMessage();
+        exit();
+    }
 
 
 

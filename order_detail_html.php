@@ -123,6 +123,15 @@ foreach ($array as $cart) {
                 echo "<td>" . $row["date"] . "</td>";
                 echo "<td>" . $tatu . "</td>";
 				echo "</tr>";
+                $totalprice = $totalprice + $syoukei;
+                echo <<< eom
+				<tr>
+					<td colspan="6"></td>
+					<th>合計金額</th>
+					<td>$totalprice 円</td>
+					<td></td>
+				</tr>
+				eom;
 			} 
 
             } else {

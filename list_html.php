@@ -79,9 +79,18 @@ try {
     <?php
     echo <<< EOM
 <h2>あなたの条件検索結果</h2>
-<div class="zyoken">
-<a>$type.$tit.$nti</a></br>
-</div>
+<table border="1">
+<tr>
+    <th>味</th>
+    <th>あっさり/こってり</th>
+    <th>太麺/細麺</th>
+</tr>
+<tr>
+    <td>$type</td>
+    <td>$tit</td>
+    <td>$nti</td>
+</tr>
+</table></br>
 EOM;
     ?>
     <table border="1">

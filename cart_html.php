@@ -56,15 +56,15 @@ foreach ($array as $cart) {
 
 	<header>
 		<h1>
-			<a href="/">TOP</a>
+			<a href="top_html.php">TOP</a>
 		</h1>
 		<nav class="pc-nav">
 			<ul>
-				<li><a href="#">ホーム</a></li>
+				<li><a href="top_html.php">ホーム</a></li>
 				<li><a href="top_html.php">日本地図で検索</a></li>
-				<li><a href="kensaku.php">好みで検索</a></li>
+				<li><a href="search_html.php">好みで検索</a></li>
 				<li><a href="cart_html.php">カート内一覧</a></li>
-				<li><a href="">注文履歴</a></li>
+				<li><a href="order_detail_html.php">注文履歴</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -72,11 +72,14 @@ foreach ($array as $cart) {
 	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
 
 	<?php
-	echo "<p style=\"text-align:right\">";
-	echo "{$_SESSION["name"]}でログイン中</br>";
+	echo <<< EOM
+	 <p style="text-align:right">
+	 $_SESSION[name]でログイン中
+	 </br>
+	 <button onclick="location.href=logout.php">ログアウト</button>
+	 </p>
+	EOM;
 
-	echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
-	echo "</p>";
 	?>
 
 	<h2>カート内一覧</h2>
@@ -88,61 +91,75 @@ foreach ($array as $cart) {
 			<th>金額</th>
 			<th>数量</th>
 			<th>小計</th>
-			<th></th>
-		</tr>
-		<form method="POST" action="cart_update.php">
+
 			<?php
-			$totalprice = 0;
-			$ArrayG_code = array();
-			foreach ($array as $row) {
-				array_push($ArrayG_code, $row["g_code"]);
-				$max = count($ArrayG_code); //カートの商品の数
+			if ($check == 1) {
+				echo <<< eom
+					<th></th>
+					</tr>
+					<form method="POST" action="cart_update.php">
+				eom;
+				$totalprice = 0;
+				$ArrayG_code = array();
+				foreach ($array as $row) {
+					array_push($ArrayG_code, $row["g_code"]);
+					$max = count($ArrayG_code); //カートの商品の数
 
-				echo "<tr>";
-				echo "<td><img src=img/{$row['g_image']} alt=\"八郎\"></td>";
-				echo "<td>{$row['g_name']}</td>";
-				echo "<td>{$row['price']}円</td>";
-				echo "<td>";
+					echo <<< eom
+					 <tr>
+					 <td><img src=img/{$row['g_image']} alt="八郎"></td>
+					 <td>{$row['g_name']}</td>
+					 <td>{$row['price']}円</td>
+					 <td>
+					<select name='qty$max'>
+					eom;
+					for ($i = 1; $i <= $row["stock"]; $i++) {
+						if ($i != $row["qty"]) {
+							echo "            <option align = right value=$i>{$i}個</option>n";
+						} else {
+							echo "            <option align = right value=$i selected>{$i}個</option>n";
+						}
+					}
+					echo <<< EOM
+					</select>
+					
+					</td>
+					EOM;
+					$syoukei = $row["qty"] * $row["price"];
 
+					echo <<< EOM
+						<td>  $syoukei  円</td>
+						<td width="120" height="80"><input type="button" value="カートから削除" onclick="location.href='cart_delete.php?id=$row[g_code]'"></td>
+						</tr>
+					EOM;
 
-				echo "<select name='qty$max'>";
+					$totalprice = $totalprice + $syoukei;
+				}
+				if (isset($max)) {
+					$_SESSION['CartGoodsQty'] = $max;			//UPDATE文で商品数(for)に使う
 
-				for ($i = 1; $i <= $row["stock"]; $i++) {
-					if ($i != $row["qty"]) {
-						echo "            <option align = right value=$i>{$i}個</option>\n";
-					} else {
-						echo "            <option align = right value=$i selected>{$i}個</option>\n";
+					for ($i = 0; $i < $max; $i++) {
+						$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
 					}
 				}
-				echo <<< EOM
-				</select>
-				
-				</td>
-				EOM;
-				$syoukei = $row["qty"] * $row["price"];
-				echo "<td>" . $syoukei . "円</td>";
-				echo "<td width=\"120\" height=\"80\"><input type=\"button\" value=\"カートから削除\" onclick=\"location.href='cart_delete.php?id={$row["g_code"]}'\"></td>";
-				echo "</tr>";
-				$totalprice = $totalprice + $syoukei;
+
+
+				echo <<< eom
+				<tr>
+					<td colspan="3"></td>
+					<th>合計金額</th>
+					<td>$totalprice 円</td>
+					<td></td>
+				</tr>
+				eom;
+			} else {
+				echo <<< eom
+					<tr>
+					<td colspan="5" class="cart">カートに商品がありません</td>
+					</tr>
+				eom;
 			}
-			if (isset($max)) {
-				$_SESSION['CartGoodsQty'] = $max;			//UPDATE文で商品数(for)に使う
-
-				for ($i = 0; $i < $max; $i++) {
-					$_SESSION['ArrayG_code'][$i] = $ArrayG_code[$i]; //商品数をもとにfor文でg_code取得させUPDATEさせる
-				}
-			}
-
-
-
-
 			?>
-			<tr>
-				<td colspan="3"></td>
-				<th>合計金額</th>
-				<td><?= $totalprice ?>円</td>
-				<td></td>
-			</tr>
 	</table><br>
 	<h3>個数を変更した際は必ず更新ボタンを押してください</h3>
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="TOPに戻る">
@@ -153,10 +170,6 @@ foreach ($array as $cart) {
 		echo <<< eom
 		<input class="button" type="button" onclick="location.href='order_html.php'" value="注文画面へ">
 		eom;
-	} else {
-		echo <<< eom
-		<a class="cart">カートに商品がありません</a>
-	eom;
 	}
 	?>
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />

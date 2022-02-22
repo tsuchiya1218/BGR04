@@ -121,7 +121,6 @@ EOM;
     <input class="button" type="button" onclick="location.href='kensaku.php'" value="戻る" />
 </body>
 <footer>
-    <p>© All rights reserved by webcampnavi.</p>
+    <p>© All rights reserved by Monkey.</p>
 </footer>
-
 </html>

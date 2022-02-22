@@ -107,7 +107,7 @@ foreach ($array as $row) {
 </script>
 
 <footer>
-    <p>© All rights reserved by webcampnavi.</p>
+    <p>© All rights reserved by Monkey.</p>
 </footer>
 
 

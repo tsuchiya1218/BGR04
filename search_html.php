@@ -65,7 +65,7 @@ session_start();
 </body></br>
 
 <footer>
-    <p>© All rights reserved by webcampnavi.</p>
+    <p>© All rights reserved by Monkey.</p>
 </footer>
 
 </html>

@@ -4,7 +4,7 @@
   }
   .msr_box02 a{
     box-sizing        : border-box;
-    display           :block;
+    display           : block;
     position          : relative;
     transition        : 0.2s ease-in-out;
     -o-transition     : 0.2s ease-in-out;
@@ -12,7 +12,7 @@
     -webkit-transition: 0.2s ease-in-out;
   }
   .msr_box02 p {
-    color: #FFFFFF;
+    color             : #FFFFFF;
     font-size         : 13px;
     line-height       : 1.6;
     padding           : 0 20px 8px 8px;
@@ -30,8 +30,8 @@
     bottom            : 5px;
     content           : " ";
     display           : inline-block;
-    *display          :inline;
-    *zoom             :1;
+    *display          : inline;
+    *zoom             : 1;
     height            : 20px;
     position          : absolute;
     right             : 5px;
@@ -40,4 +40,5 @@
   .msr_box02 a:hover{
     opacity           : 0.8;
   }
+  
   

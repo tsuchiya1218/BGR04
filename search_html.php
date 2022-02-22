@@ -15,11 +15,11 @@ session_start();
 <body>
     <header>
         <h1>
-            <a href="/">TOP</a>
+            <a href="top_html.php">TOP</a>
         </h1>
         <nav class="pc-nav">
             <ul>
-            <li><a href="top_html.php">ホーム</a></li>
+                <li><a href="top_html.php">ホーム</a></li>
                 <li><a href="top_html.php">日本地図で検索</a></li>
                 <li><a href="search_html.php">好みで検索</a></li>
                 <li><a href="cart_html.php">カート内一覧</a></li>
@@ -27,7 +27,7 @@ session_start();
             </ul>
         </nav>
     </header>
-    
+
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
 
     <?php

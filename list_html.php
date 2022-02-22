@@ -118,7 +118,7 @@ EOM;
         }
         ?>
     </table>
-    <input class="button" type="button" onclick="location.href='kensaku.php'" value="戻る" />
+    <input class="button" type="button" onclick="location.href='search_html.php'" value="戻る" />
 </body>
 <footer>
     <p>© All rights reserved by Monkey.</p>

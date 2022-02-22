@@ -30,7 +30,7 @@ try {
 
 <head>
     <meta charset="UTF-8">
-    <link href="css/Prefectures.css" rel="stylesheet" type ="text/css">
+    <link href="css/prefectures.css" rel="stylesheet" type ="text/css">
 
     <title>Top</title>
 </head>

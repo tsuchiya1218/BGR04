@@ -44,7 +44,7 @@ foreach ($array as $row) {
 <head>
     <meta charset="UTF-8">
     <link href="css/common.css" rel="stylesheet" type="text/css">
-    <link href="css/Top.css" rel="stylesheet" type="text/css">
+    <link href="css/top.css" rel="stylesheet" type="text/css">
     <title>地図検索</title>
 </head>
 

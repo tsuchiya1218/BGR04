@@ -43,7 +43,7 @@ session_start();
     <?
     //cartの情報をorder_detailに移動するSQLを作る
     ?>
-    <input class="button" type="button" onclick="location.href='top.php'" value="トップページに戻る" />
+    <input class="button" type="button" onclick="location.href='top_html.php'" value="トップページに戻る" />
 </body>
 
 </html>

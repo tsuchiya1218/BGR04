@@ -46,4 +46,8 @@ session_start();
     <input class="button" type="button" onclick="location.href='top_html.php'" value="トップページに戻る" />
 </body>
 
+<footer>
+    <p>© All rights reserved by Monkey.</p>
+</footer>
+
 </html>

@@ -123,7 +123,6 @@ foreach ($array as $cart) {
 					<td colspan="6"></td>
 					<th>合計金額</th>
 					<td>$totalprice 円</td>
-					<td></td>
 				</tr>
 				eom;
 			} 

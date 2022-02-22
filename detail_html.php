@@ -187,7 +187,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 </br>
 
 <footer>
-	<p>© All rights reserved by webcampnavi.</p>
+	<p>© All rights reserved by Monkey.</p>
 </footer>
 
 </html>

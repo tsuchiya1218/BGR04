@@ -45,6 +45,8 @@ try {
 
 <head>
     <meta charset="UTF-8">
+    <link href="./CSS/common.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/list.css" rel="stylesheet" type="text/css">
     <title>商品検索一覧(好み検索)</title>
 </head>
 
@@ -96,7 +98,7 @@ EOM;
                 //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
                 echo <<< EOM
                     <tr>
-                    <td><a href="detail_html.php?id=$value[g_code]">{$value["g_name"]}</a></td>
+                    <td><a class="color" href="detail_html.php?id=$value[g_code]">{$value["g_name"]}</a></td>
                     <td><a href="detail_html.php?id=$value[g_code]"><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></a></td>
                     <td>{$value["g_detail"]}</td>
                     <td>{$value["price"]}</td>
@@ -107,7 +109,10 @@ EOM;
             }
             ?>
     </table>
-    <input type="button" onclick="location.href='kensaku.php'" value="戻る" />
+    <input class="button" type="button" onclick="location.href='kensaku.php'" value="戻る" />
 </body>
+<footer>
+	<p>© All rights reserved by webcampnavi.</p>
+</footer>
 
 </html>

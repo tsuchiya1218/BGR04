@@ -87,7 +87,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="./CSS/common.css" rel="stylesheet" type="text/css">
-	<link href="./CSS/syousai.css" rel="stylesheet" type="text/css">
+	<link href="./CSS/detail.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

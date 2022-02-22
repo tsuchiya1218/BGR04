@@ -128,7 +128,7 @@ foreach ($array as $cart) {
 					$syoukei = $row["qty"] * $row["price"];
 
 					echo <<< EOM
-						<td> . $syoukei . 円</td>
+						<td>  $syoukei  円</td>
 						<td width="120" height="80"><input type="button" value="カートから削除" onclick="location.href='cart_delete.php?id=$row[g_code]'"></td>
 						</tr>
 					EOM;
@@ -144,13 +144,11 @@ foreach ($array as $cart) {
 				}
 
 
-
-
 				echo <<< eom
 				<tr>
 					<td colspan="3"></td>
 					<th>合計金額</th>
-					<td><?= $totalprice ?>円</td>
+					<td>$totalprice 円</td>
 					<td></td>
 				</tr>
 				eom;

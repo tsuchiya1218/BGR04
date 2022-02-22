@@ -8,8 +8,11 @@ h2 {
 
 .address{
     padding         : 1rem 2rem;
-    border          : 6px double #000;/*囲み二重線追加*/
-    
+    border          : 6px double #000;/*囲み二重線追加*/   
+}
+.color{
+    color: darkblue;
+    text-decoration: underline;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

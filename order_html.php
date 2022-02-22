@@ -82,10 +82,8 @@ foreach ($array as $value) {
             <th>配送先住所</th>
             <td>
                 <?= $c_address1 . $c_address2 ?>
-                <div class="color">
-                <a href="addresshenkou.php">住所変更</a>
-                <a href="addresssinki">住所新規</a>
-                </div>
+                <a class="color" href="addresshenkou.php">住所変更</a>
+                <a class="color" href="addresssinki">住所新規</a>
             </td>
 
         </tr>

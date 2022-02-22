@@ -66,7 +66,4 @@ unk;
 
 </body>
 
-<footer>
-    <p>© All rights reserved by Monkey.</p>
-</footer>
 </html>

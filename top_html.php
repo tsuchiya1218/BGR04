@@ -64,7 +64,7 @@ foreach ($array as $row) {
         </nav>
     </header>
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
-    <p>エリアからご当地ラーメンを検索する</p>
+    <h2>エリアからご当地ラーメンを検索する</h2>
 
     <?php
     echo "<p style=\"text-align:right\">";

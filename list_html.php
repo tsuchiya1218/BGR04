@@ -76,7 +76,14 @@ try {
     echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
     echo "</p>";
     ?>
-
+    <?php
+    echo <<< EOM
+<h2>あなたの条件検索結果</h2>
+<div class="zyoken">
+<a>$type.$tit.$nti</a></br>
+</div>
+EOM;
+    ?>
     <table border="1">
         <tr>
             <th>名前</th>
@@ -85,18 +92,11 @@ try {
             <th>値段</th>
             <th>アレルギー</th>
         </tr>
-        <div class="zyoken">
-            <?php
+        <?php
+
+        foreach ($array as $value) {
+            //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
             echo <<< EOM
-あなたの条件検索結果</br>
-$type</br>
-$tit</br>
-$nti
-</div>
-EOM;
-            foreach ($array as $value) {
-                //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
-                echo <<< EOM
                     <tr>
                     <td><a class="color" href="detail_html.php?id=$value[g_code]">{$value["g_name"]}</a></td>
                     <td><a href="detail_html.php?id=$value[g_code]"><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></a></td>
@@ -106,13 +106,13 @@ EOM;
                     </tr>
                     
                     EOM;
-            }
-            ?>
+        }
+        ?>
     </table>
     <input class="button" type="button" onclick="location.href='kensaku.php'" value="戻る" />
 </body>
 <footer>
-	<p>© All rights reserved by webcampnavi.</p>
+    <p>© All rights reserved by webcampnavi.</p>
 </footer>
 
 </html>

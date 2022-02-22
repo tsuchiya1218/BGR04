@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$totalprice = $_POST['totalprice'];
+
 try {
     $server_name = "10.42.129.3";    // サーバ名
     $db_name = "20jy0204";    // データベース名(自分の学籍番号を入力)
@@ -21,21 +23,54 @@ try {
     exit();
 }
 
-$sql = "INSERT INTO order_detail ";
 
+
+
+$sqlcart = "SELECT * FROM cart";
 try {
-    // SQL 文を準備
-    $stmt = $pdo->prepare($sql);
-    // SQL 文を実行
+    //SQL文を準備
+    $stmt = $pdo->prepare($sqlcart);
+    //SQL文を実行
     $stmt->execute();
-    // 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
-    $array = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $stmt = null;
-    $pdo = null;
 } catch (PDOException $e) {
-    print "SQL 実行エラー!: " . $e->getMessage();
+    print "sqlcart 実行エラー!: " . $e->getMessage();
     exit();
 }
+foreach ($stmt as $value) {
+
+    $maxsql = "SELECT MAX(o_code) AS maxid FROM orders";
+    try {
+        //SQL文を準備
+        $stmt = $pdo->prepare($maxsql);
+        //SQL文を実行
+        $stmt->execute();
+        $array = $stmt->fetchALL(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        print "maxsql 実行エラー！：" . $e->getMessage();
+        exit();
+    }
+    $o_code = $array[0]['maxid'] + 1;
+
+    
+    $ordersql = "INSERT INTO orders VALUES (?,?,?,?)";
+
+    $date = date("Y/m/d");
+
+    try {
+        // SQL 文を準備
+        $stmt = $pdo->prepare($ordersql);
+        // SQL 文を実行
+        $stmt->execute(array($o_code, $value['qty'], $date, $totalprice));
+        // 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
+
+    } catch (PDOException $e) {
+        print "ordersql 実行エラー!: " . $e->getMessage();
+        exit();
+    }
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +98,7 @@ try {
             </ul>
         </nav>
     </header>
-    
+
     <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
     <?php
     echo "<p style=\"text-align:right\">";
@@ -76,9 +111,7 @@ try {
     <h3>注文が確定しました</h3><br>
 
     <h3>ご確認用のメールを送信しました</h3>
-    <?
-    //cartの情報をorder_detailに移動するSQLを作る
-    ?>
+
     <input class="button" type="button" onclick="location.href='top_html.php'" value="トップページに戻る" />
 </body>
 

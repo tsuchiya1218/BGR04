@@ -122,9 +122,12 @@ $card = $_POST["card"];
     </table>
 
     <h2>以上の内容で注文を確定してもよろしいですか？</h2>
+    <form method="POST" action="order_completion_html.php">
+        <input type="hidden" name="totalprice" value="<?= $totalprice ?>" />
+        <input class="button" type="button" onclick="location.href='order_html.php'" value="戻る" />
+        <input class="button" type="submit" value="注文を確定する" />
+    </form>
 
-    <input class="button" type="button" onclick="location.href='order_html.php'" value="戻る" />
-    <input class="button" type="button" onclick="location.href='order_completion_html.php'" value="注文を確定する" />
 </body>
 
 <footer>

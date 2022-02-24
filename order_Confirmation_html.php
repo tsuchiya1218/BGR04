@@ -72,7 +72,7 @@ $card = $_POST["card"];
         </nav>
     </header>
 
-    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
 
     <h2>注文確認画面</h2>
     <?php
@@ -121,7 +121,7 @@ $card = $_POST["card"];
         </tr>
     </table>
 
-    <h2>以上の内容で注文を確定してもよろしいですか？</h2>
+    <h3>以上の内容で注文を確定してもよろしいですか？</h3>
     <form method="POST" action="order_completion_html.php">
         <input type="hidden" name="totalprice" value="<?= $totalprice ?>" />
         <input class="button" type="button" onclick="location.href='order_html.php'" value="戻る" />

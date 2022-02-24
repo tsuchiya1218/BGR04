@@ -167,7 +167,7 @@ foreach ($array as $value) { //データベースから商品情報取得
 			echo <<< EOM
 				</select>
 				</br>
-				<input type="button" onclick="location.href='top_html.php'" value="戻る" />
+				<input type="button" onclick="window.close()" value="戻る" />
 				
 				EOM;
 

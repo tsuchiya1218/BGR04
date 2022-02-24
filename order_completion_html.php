@@ -130,7 +130,7 @@ $deletesql = "DELETE FROM cart";
             </ul>
         </nav>
     </header>
-    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130">
+	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
     <?php
     echo "<p style=\"text-align:right\">";
     echo "{$_SESSION["name"]}でログイン中</br>";

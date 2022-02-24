@@ -118,14 +118,14 @@ foreach ($array as $cart) {
                 echo "<td>" . $row["delivery"] . "</td>";
 				echo "</tr>";
                 $totalprice = $totalprice + $syoukei;
-                echo <<< eom
-				<tr>
-					<td colspan="6"></td>
-					<th>合計金額</th>
-					<td>$totalprice 円</td>
-				</tr>
-				eom;
 			} 
+			echo <<< eom
+			<tr>
+				<td colspan="6"></td>
+				<th>合計金額</th>
+				<td>$totalprice 円</td>
+			</tr>
+			eom;
 
             } else {
                 echo <<< eom

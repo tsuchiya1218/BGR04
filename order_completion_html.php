@@ -67,6 +67,24 @@ foreach ($stmt as $value) {
         print "ordersql 実行エラー!: " . $e->getMessage();
         exit();
     }
+
+    $ordersql = "INSERT INTO order_detail VALUES (?,?,?)";
+
+    $delivery = '未';
+
+    try {
+        // SQL 文を準備
+        $stmt = $pdo->prepare($ordersql);
+        // SQL 文を実行
+        $stmt->execute(array($o_code, $value['g_code'], $delivery,));
+        // 実行結果をまとめて取り出し(カラム名で添字を付けた配列)
+
+    } catch (PDOException $e) {
+        print "ordersql 実行エラー!: " . $e->getMessage();
+        exit();
+    }
+
+
 }
 
 $deletesql = "DELETE FROM cart";

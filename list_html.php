@@ -78,20 +78,25 @@ try {
     ?>
     <?php
     echo <<< EOM
-<h2>あなたの条件検索結果</h2>
-<table border="1">
-<tr>
-    <th>味</th>
-    <th>あっさり/こってり</th>
-    <th>太麺/細麺</th>
-</tr>
-<tr>
-    <td>$type</td>
-    <td>$tit</td>
-    <td>$nti</td>
-</tr>
-</table></br>
-EOM;
+        <h2>あなたの条件検索結果</h2>
+        <table border="1">
+            <tr>
+                <th colspan="2">検索条件</th>
+            </tr>
+            <tr>
+                <th class="wheat">味</th>
+                <td>$type</td>
+            </tr>
+            <tr>
+                <th class="wheat">あっさり/こってり</th>
+                <td>$tit</td>
+            </tr>
+            <tr>
+                <th class="wheat">太麺/細麺</th>
+                <td>$nti</td>
+            </tr>
+        </table></br>
+    EOM;
 
     ?>
     <table border="1">

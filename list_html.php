@@ -52,7 +52,7 @@ try {
 
 <body>
 
-<header>
+    <header>
         <h1>
             <a href="top_html.php">TOP</a>
         </h1>
@@ -92,19 +92,20 @@ try {
 </tr>
 </table></br>
 EOM;
+
     ?>
     <table border="1">
         <tr>
             <th>名前</th>
             <th>イメージ</th>
-            <th>詳細</th>
+            <th class="width40">詳細</th>
             <th>値段</th>
             <th>アレルギー</th>
+            <th>特徴</th>
         </tr>
         <?php
 
         foreach ($array as $value) {
-            //これ入れ込みたいテーブル全体をリンクにしたい<a href='syousai.php?g_code = $value[g_code]></a>
             echo <<< EOM
                     <tr>
                     <td><a class="color" href="detail_html.php?id=$value[g_code]">{$value["g_name"]}</a></td>
@@ -112,10 +113,44 @@ EOM;
                     <td>{$value["g_detail"]}</td>
                     <td>{$value["price"]}</td>
                     <td>{$value["allergen"]}</td>
-                    </tr>
-                    
-                    EOM;
+                    <td>
+            EOM;
+
+            if ($type == $value["type"]) {
+                echo <<< EOM
+                    <div class="red">$value[type]</br></div>
+                EOM;
+            } else {
+                echo <<< EOM
+                    $value[type]</br>
+                EOM;
+            }
+            if ($tit == $value['taste_intensity']) {
+                echo <<< EOM
+                    <div class="red">$value[taste_intensity]</br></div>
+                EOM;
+            } else {
+                echo <<< EOM
+                    $value[taste_intensity]</br>
+                EOM;
+            }
+            if ($nti == $value['noodle_thickness']) {
+                echo <<< EOM
+                    <div class="red">$value[noodle_thickness]</div>
+                EOM;
+            } else {
+                echo <<< EOM
+                    $value[noodle_thickness]
+                EOM;
+            }
+            echo <<< EOM
+                </td>
+                </tr>
+            EOM;
         }
+
+
+
         ?>
     </table>
     <input class="button" type="button" onclick="location.href='search_html.php'" value="戻る" />
@@ -123,4 +158,5 @@ EOM;
 <footer>
     <p>© All rights reserved by Monkey.</p>
 </footer>
+
 </html>

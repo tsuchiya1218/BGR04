@@ -10,6 +10,11 @@ table th{
     background-color: goldenrod;/*背景色を変更する*/
     color           : white;/*フォントの色を白にする*/
 }
+
+th.width40 {
+    width: 40%;
+}
+
 .color{
     color           : darkblue;
     text-decoration : underline;
@@ -22,4 +27,8 @@ table th{
     background-color: #eb6100;/*背景色を変更する*/
     width           : 300px;
     padding         : 10px;
+}
+
+.red{
+    color           :#eb6100
 }

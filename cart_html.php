@@ -162,8 +162,6 @@ foreach ($array as $cart) {
 			?>
 	</table><br>
 	<h3>個数を変更した際は必ず更新ボタンを押してください</h3>
-	<input class="button" type="button" onclick="location.href='top_html.php'" value="TOPに戻る">
-
 	<?php
 	//商品がある場合【注文画面へが表示される】
 	if ($check == 1) {

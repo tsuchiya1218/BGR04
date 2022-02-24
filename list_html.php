@@ -113,8 +113,8 @@ try {
         foreach ($array as $value) {
             echo <<< EOM
                     <tr>
-                    <td><a class="color" href="detail_html.php?id=$value[g_code]">{$value["g_name"]}</a></td>
-                    <td><a href="detail_html.php?id=$value[g_code]"><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></a></td>
+                    <td><a class="color" href="detail_html.php?id=$value[g_code]" target="_blank">{$value["g_name"]}</a></td>
+                    <td><a href="detail_html.php?id=$value[g_code]" target="_blank"><img name=logo src='./img/{$value["g_image"]}'alt='{$value["g_name"]}' width='193' height='130'></a></td>
                     <td>{$value["g_detail"]}</td>
                     <td>{$value["price"]}</td>
                     <td>{$value["allergen"]}</td>

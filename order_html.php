@@ -39,6 +39,7 @@ try {
 foreach ($array as $value) {
     //データベースから顧客情報取得
     $c_name = $value["c_name"];
+    $c_zip = $value["c_zip"];
     $c_address1 = $value["c_address1"];
     $c_address2 = $value["c_address2"];
 }
@@ -80,7 +81,8 @@ foreach ($array as $value) {
         <tr>
             <th>配送先住所</th>
             <td>
-                <?= $c_address1 . $c_address2 ?>
+                〒
+                <?= $c_zip . $c_address1 . $c_address2 ?>
                 <a class="color" href="addresschange.php">住所変更</a>
             </td>
 

@@ -69,7 +69,7 @@ foreach ($array as $value) {
             </ul>
         </nav>
     </header>
-	<img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
+    <img name=logo src="./img/logo.jpg" alt="logo" width="300" height="130" onclick="location.href='top_html.php'">
     <?php
     echo "<p style=\"text-align:right\">";
     echo "{$_SESSION["name"]}でログイン中</br>";
@@ -77,15 +77,24 @@ foreach ($array as $value) {
     echo "<button onclick=\"location.href='logout.php'\">ログアウト</button>";
     echo "</p>";
     ?>
+    <h2>注文確認画面</h2>
     <table border="2">
+        <tr>
+            <th>名前</th>
+            <td><?= $c_name ?></td>
+        </tr>
+
         <tr>
             <th>配送先住所</th>
             <td>
-                〒
-                <?= $c_zip . $c_address1 . $c_address2 ?>
-                <a class="color" href="addresschange.php">住所変更</a>
+                <?= $c_address1 . $c_address2 ?>
+                <a class="color" href="address_change.php">住所変更</a>
             </td>
+        </tr>
 
+        <tr>
+            <th>郵便番号</th>
+            <td>〒<?= $c_zip ?></td>
         </tr>
 
         <tr>
@@ -101,7 +110,7 @@ foreach ($array as $value) {
         </tr>
     </table>
 
-    <h2>※以下の御注文でお間違いがないか必ず御確認ください。</h2>
+    <h3>※以下の御注文でお間違いがないか必ず御確認ください。</h3>
 
     <table border="2">
         <tr>

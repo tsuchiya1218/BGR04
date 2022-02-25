@@ -82,7 +82,6 @@ foreach ($array as $value) {
             <td>
                 <?= $c_address1 . $c_address2 ?>
                 <a class="color" href="addresshenkou.php">住所変更</a>
-                <a class="color" href="addresssinki">住所新規</a>
             </td>
 
         </tr>
@@ -97,9 +96,6 @@ foreach ($array as $value) {
                     <input type="radio" id="4" value="Misterカード" name="card"><label for="4">Misterカード</label>
                     <input type="radio" id="5" value="楽夫カード" name="card"><label for="5">楽夫カード</label><br>
             </td>
-        </tr>
-        <tr>
-            <td class="CardNumber"><input type="number" name="CardNumber" onkeyup="value = value.length > 16 ? value.slice(0,16): value;" required></td>
         </tr>
     </table>
 
@@ -132,7 +128,7 @@ foreach ($array as $value) {
         </tr>
     </table>
     <input class="button" type="button" onclick="location.href='cart_html.php'" value="戻る" />
-    <input class="button" type="submit" value="注文を確定する">
+    <input class="button" type="submit" value="注文を確認する">
     </form>
 </body>
 

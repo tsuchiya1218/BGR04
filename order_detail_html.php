@@ -136,8 +136,6 @@ foreach ($array as $cart) {
             }
             ?>
 	</table><br>
-
-	<input class="button" type="button" onclick="location.href='top_html.php'" value="TOPに戻る">
 	<input class="button" type="button" onclick="location.href='top_html.php'" value="ショッピングを続ける" />
 	<script src="./js/cart.js"></script>
 </body>

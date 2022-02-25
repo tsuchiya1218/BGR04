@@ -81,10 +81,7 @@ try {
                 if ($id == $value["c_code"]) {
                     echo <<< EOM
                     <table border="2">
-                        <tr>
-                            <th>名前 </br>※苗字と名前の間にスペース</th>
-                            <td><input type=text name=c_name placeholder={$value["c_name"]} required></td>
-                        </tr>
+                       
                         <tr>
                             <th>郵便番号 </br>※ハイフン無し</th>
                             <td><input type=text name=c_zip placeholder={$value["c_zip"]} required></td>

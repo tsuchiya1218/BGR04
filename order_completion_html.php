@@ -111,7 +111,7 @@ $deletesql = "DELETE FROM cart";
 <head>
     <meta charset="UTF-8">
     <link href="css/common.css" rel="stylesheet" type="text/css">
-    <link href="css/tyumon.css" rel="stylesheet" type="text/css">
+    <link href="css/order.css" rel="stylesheet" type="text/css">
     <title>注文完了画面</title>
 </head>
 
@@ -139,9 +139,9 @@ $deletesql = "DELETE FROM cart";
     echo "</p>";
     ?>
 
-    <h3>注文が確定しました</h3><br>
+    <h2>注文が確定しました</h2><br>
 
-    <h3>ご確認用のメールを送信しました</h3>
+    <h2>ご確認用のメールを送信しました</h2>
 
     <input class="button" type="button" onclick="location.href='top_html.php'" value="トップページに戻る" />
 </body>

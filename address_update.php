@@ -2,7 +2,10 @@
 session_start();
 
 
-$CartGoodsQty = $_SESSION['CartGoodsQty']; //商品数
+$c_code = $_POST['c_code']; //カスタマーコード
+$c_zip = $_POST['c_zip']; //郵便番号
+$c_address1 = $_POST['c_address1']; //住所１
+$c_address2 = $_POST['c_address2']; //住所２
 
 //データベースに接続する
 try {
@@ -25,18 +28,14 @@ try {
 }
 
 
-
-
-	
-
-	$sql = "UPDATE cart SET qty = ?, cart_code = ? WHERE g_code=?";
+	$sql = "UPDATE customers SET c_zip = ?, c_address1 = ?, c_address2 = ? WHERE c_code=?";
 	$stmt = $pdo->prepare($sql);
 
-	$stmt->execute(array($qty[$j], $cart_code, $ArrayG_code[$i]));
+	$stmt->execute(array($c_zip, $c_address1, $c_address2, $c_code));
 
 
 
-header('Location: cart_html.php');
+header('Location: order_html.php');
 exit();
 
 

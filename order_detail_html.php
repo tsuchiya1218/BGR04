@@ -108,7 +108,7 @@ foreach ($array as $cart) {
                 echo "<td>{$row['shopname']}</td>";
 				echo "<td>{$row['price']}円</td>";
 				echo "<td>";
-				echo $row["qty"];
+				echo $row["qty"]."個";
 				echo <<< EOM
 				</td>
 				EOM;

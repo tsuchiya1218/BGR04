@@ -75,7 +75,7 @@ try {
         ?>
         <h2>住所変更画面</h2>
 
-        <form method=POST action=.php>
+        <form method=POST action=address_update.php>
             <?php
             foreach ($array as $value) {
                 if ($id == $value["c_code"]) {
@@ -106,6 +106,7 @@ try {
                 }
             }
             ?>
+            <input type="hidden" name="c_code" value="<?= $id ?>" />
             <input class="button" type="button" onclick="location.href='order_html.php'" value="戻る" />
             <input class="button" type="submit" value="住所を変更する">
         </form>
